@@ -21,7 +21,7 @@ void {\bf lcd\_\-gotoxy} (uint8\_\-t x, uint8\_\-t y)
 void {\bf lcd\_\-plot\_\-pixel} (uint8\_\-t x, uint8\_\-t y, uint8\_\-t set)
 \begin{CompactList}\small\item\em set or unset a pixel at the specified location \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const uint8\_\-t $\ast$bitmap, uint8\_\-t w, uint8\_\-t h)
-\end{CompactItemize}
+\begin{CompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Variables}
 \begin{CompactItemize}
 \item 
@@ -70,6 +70,8 @@ lcd\_\-init set the to default values.
 \index{lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8c_f3b584ee8235c6ed4ebefc50f8a95915}
 
+
+This function will plot a bitmap with the upper left corner to the given coordinates. 
 
 \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
 \index{lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}!lc7981.c@{lc7981.c}}
