@@ -10,7 +10,7 @@
 
 #include "include/lc7981.h"
 #include "button.h"
-#include "draw_penguin.h"
+
 
 
 int main() {
