@@ -275,8 +275,15 @@ uint8_t xr;
  * don't worry if you don't understand it at first sight. \n
  * And if you know a better way to do this, tell me.\n
  *
+ * @param x horizontal position of the bitmap
+ * @param y vertical position of the bitmap
+ * @param bitmap pointer to the bitmap in pgmspace
+ * @param w width of the bitmap
+ * @param h height of the bitmap
+ *
  * This function is dedicated to Greta, one of the most important persons in my life so far.\n
  * Even though I can't remember her actual name.\n
+ *
  */
 void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, const uint8_t *bitmap, uint8_t w, uint8_t h) {
 uint8_t x,y,cur,curs,sr,dr;

@@ -7,49 +7,49 @@
 \begin{CompactItemize}
 \item 
 \#define {\bf LC7981\_\-H\_\-}~LC7981\_\-H\_\-
-\item 
+\begin{CompactList}\small\item\em protects this file from beeing double included \item\end{CompactList}\item 
 \#define {\bf LCD\_\-CTRL}~PORTC
-\item 
+\begin{CompactList}\small\item\em Port used for control signals. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-CRTL\_\-DDR}~DDRC
-\item 
+\begin{CompactList}\small\item\em Data-Direction-Register for the control signals. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-RS}~PC4
-\item 
+\begin{CompactList}\small\item\em Register-Select Pin of the Display. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-RW}~PC2
-\item 
+\begin{CompactList}\small\item\em Read-Write-select Pin. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-EN}~PC0
-\item 
+\begin{CompactList}\small\item\em Strobe Pin. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-DATA}~PORTD
-\item 
+\begin{CompactList}\small\item\em Port used for data. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-DATA\_\-DDR}~DDRD
-\item 
+\begin{CompactList}\small\item\em Data-Direction-Register for Data. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-rs\_\-high}()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-RS))
-\item 
+\begin{CompactList}\small\item\em Set the Register-Select pin high. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-rs\_\-low}()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-RS))
-\item 
+\begin{CompactList}\small\item\em Set the Register-Select pin low. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-rw\_\-high}()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-RW))
-\item 
+\begin{CompactList}\small\item\em Set the Read-Write-Select pin high. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-rw\_\-low}()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-RW))
-\item 
+\begin{CompactList}\small\item\em Set the Register-Select pin low. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-en\_\-high}()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-EN))
-\item 
+\begin{CompactList}\small\item\em Set the strobe pin high. \item\end{CompactList}\item 
 \#define {\bf lcd\_\-en\_\-low}()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-EN))
-\item 
+\begin{CompactList}\small\item\em Set the strobe pin low. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-TEXT}~0
-\item 
+\begin{CompactList}\small\item\em Constant for text mode. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-TEXT\_\-LINES}~10
-\item 
+\begin{CompactList}\small\item\em Number of lines in text mode. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-TEXT\_\-COLUMNS}~26
-\item 
+\begin{CompactList}\small\item\em Number of columns in text mode. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-GRAPHIC}~1
-\item 
+\begin{CompactList}\small\item\em Constant for graphic mode. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-GRAPHIC\_\-WIDTH}~160
-\item 
+\begin{CompactList}\small\item\em Horizontal display size in pixels. \item\end{CompactList}\item 
 \#define {\bf LCD\_\-GRAPHIC\_\-HEIGHT}~80
-\item 
+\begin{CompactList}\small\item\em Vertical display size in pixels. \item\end{CompactList}\item 
 \#define {\bf PIXEL\_\-ON}~1
-\item 
+\begin{CompactList}\small\item\em see lcd\_\-plot\_\-pixel \item\end{CompactList}\item 
 \#define {\bf PIXEL\_\-OFF}~0
-\end{CompactItemize}
+\begin{CompactList}\small\item\em see lcd\_\-plot\_\-pixel \item\end{CompactList}\end{CompactItemize}
 \subsection*{Functions}
 \begin{CompactItemize}
 \item 
@@ -79,110 +79,154 @@ uint8\_\-t {\bf lcd\_\-read\_\-byte} ()
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LC7981\_\-H\_\-~LC7981\_\-H\_\-}\label{lc7981_8h_e6ff861bd55f4dc46f25f5f6abfca15f}
 
 
+protects this file from beeing double included 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-CRTL\_\-DDR@{LCD\_\-CRTL\_\-DDR}}
 \index{LCD\_\-CRTL\_\-DDR@{LCD\_\-CRTL\_\-DDR}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-CRTL\_\-DDR~DDRC}\label{lc7981_8h_4b6c8400da9a1ca3d4d83f3ef1f9c34a}
 
+
+Data-Direction-Register for the control signals. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-CTRL@{LCD\_\-CTRL}}
 \index{LCD\_\-CTRL@{LCD\_\-CTRL}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-CTRL~PORTC}\label{lc7981_8h_8e945df7ca614325cafa08258e82a63c}
 
 
+Port used for control signals. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-DATA@{LCD\_\-DATA}}
 \index{LCD\_\-DATA@{LCD\_\-DATA}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-DATA~PORTD}\label{lc7981_8h_25e9d818788f36ed74d7c4579f87f2a6}
 
+
+Port used for data. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-DATA\_\-DDR@{LCD\_\-DATA\_\-DDR}}
 \index{LCD\_\-DATA\_\-DDR@{LCD\_\-DATA\_\-DDR}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-DATA\_\-DDR~DDRD}\label{lc7981_8h_0c114e723aa4c162c415fb6d4d963dd7}
 
 
+Data-Direction-Register for Data. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-EN@{LCD\_\-EN}}
 \index{LCD\_\-EN@{LCD\_\-EN}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-EN~PC0}\label{lc7981_8h_1640ffbc0d8ec0f7edb04a2b93918072}
 
+
+Strobe Pin. 
 
 \index{lc7981.h@{lc7981.h}!lcd\_\-en\_\-high@{lcd\_\-en\_\-high}}
 \index{lcd\_\-en\_\-high@{lcd\_\-en\_\-high}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-en\_\-high()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-EN))}\label{lc7981_8h_e14be306d3620577abc8613d40401b04}
 
 
+Set the strobe pin high. 
+
 \index{lc7981.h@{lc7981.h}!lcd\_\-en\_\-low@{lcd\_\-en\_\-low}}
 \index{lcd\_\-en\_\-low@{lcd\_\-en\_\-low}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-en\_\-low()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-EN))}\label{lc7981_8h_d8dcdb36a9410fd96b2c936b7c9355dd}
 
+
+Set the strobe pin low. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-GRAPHIC@{LCD\_\-GRAPHIC}}
 \index{LCD\_\-GRAPHIC@{LCD\_\-GRAPHIC}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-GRAPHIC~1}\label{lc7981_8h_dfaedf8da8e73d39a98d709b519a3117}
 
 
+Constant for graphic mode. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-GRAPHIC\_\-HEIGHT@{LCD\_\-GRAPHIC\_\-HEIGHT}}
 \index{LCD\_\-GRAPHIC\_\-HEIGHT@{LCD\_\-GRAPHIC\_\-HEIGHT}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-GRAPHIC\_\-HEIGHT~80}\label{lc7981_8h_70265c4f840ef78872243e91c923af2f}
 
+
+Vertical display size in pixels. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-GRAPHIC\_\-WIDTH@{LCD\_\-GRAPHIC\_\-WIDTH}}
 \index{LCD\_\-GRAPHIC\_\-WIDTH@{LCD\_\-GRAPHIC\_\-WIDTH}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-GRAPHIC\_\-WIDTH~160}\label{lc7981_8h_51e83be6f6929f2a29d5467cd937dfc6}
 
 
+Horizontal display size in pixels. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-RS@{LCD\_\-RS}}
 \index{LCD\_\-RS@{LCD\_\-RS}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-RS~PC4}\label{lc7981_8h_4781e073871c6f27f89b9463ad3a4ed1}
 
+
+Register-Select Pin of the Display. 
 
 \index{lc7981.h@{lc7981.h}!lcd\_\-rs\_\-high@{lcd\_\-rs\_\-high}}
 \index{lcd\_\-rs\_\-high@{lcd\_\-rs\_\-high}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-rs\_\-high()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-RS))}\label{lc7981_8h_795b48274d3f80bc744a707b67fd93e9}
 
 
+Set the Register-Select pin high. 
+
 \index{lc7981.h@{lc7981.h}!lcd\_\-rs\_\-low@{lcd\_\-rs\_\-low}}
 \index{lcd\_\-rs\_\-low@{lcd\_\-rs\_\-low}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-rs\_\-low()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-RS))}\label{lc7981_8h_6edb13d59460246fb4cc32ada1c9f4a8}
 
+
+Set the Register-Select pin low. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-RW@{LCD\_\-RW}}
 \index{LCD\_\-RW@{LCD\_\-RW}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-RW~PC2}\label{lc7981_8h_26089a10ddd59a0dc7283c19ccc02533}
 
 
+Read-Write-select Pin. 
+
 \index{lc7981.h@{lc7981.h}!lcd\_\-rw\_\-high@{lcd\_\-rw\_\-high}}
 \index{lcd\_\-rw\_\-high@{lcd\_\-rw\_\-high}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-rw\_\-high()~(LCD\_\-CTRL $|$= (1 $<$$<$ LCD\_\-RW))}\label{lc7981_8h_d0ce3cd9b481370ad4de36eff08440c8}
 
+
+Set the Read-Write-Select pin high. 
 
 \index{lc7981.h@{lc7981.h}!lcd\_\-rw\_\-low@{lcd\_\-rw\_\-low}}
 \index{lcd\_\-rw\_\-low@{lcd\_\-rw\_\-low}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define lcd\_\-rw\_\-low()~(LCD\_\-CTRL \&= $\sim$(1 $<$$<$ LCD\_\-RW))}\label{lc7981_8h_7f5ebe0ca71b1298a7d3423850cc82b1}
 
 
+Set the Register-Select pin low. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-TEXT@{LCD\_\-TEXT}}
 \index{LCD\_\-TEXT@{LCD\_\-TEXT}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-TEXT~0}\label{lc7981_8h_90a69d37f5c80f3ded970acf2dacf4c0}
 
+
+Constant for text mode. 
 
 \index{lc7981.h@{lc7981.h}!LCD\_\-TEXT\_\-COLUMNS@{LCD\_\-TEXT\_\-COLUMNS}}
 \index{LCD\_\-TEXT\_\-COLUMNS@{LCD\_\-TEXT\_\-COLUMNS}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-TEXT\_\-COLUMNS~26}\label{lc7981_8h_82f0a630f3c41b5233f2ceb07c7dd736}
 
 
+Number of columns in text mode. 
+
 \index{lc7981.h@{lc7981.h}!LCD\_\-TEXT\_\-LINES@{LCD\_\-TEXT\_\-LINES}}
 \index{LCD\_\-TEXT\_\-LINES@{LCD\_\-TEXT\_\-LINES}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LCD\_\-TEXT\_\-LINES~10}\label{lc7981_8h_720ef60606ac38ca3a5ab96a9c2b8168}
 
+
+Number of lines in text mode. 
 
 \index{lc7981.h@{lc7981.h}!PIXEL\_\-OFF@{PIXEL\_\-OFF}}
 \index{PIXEL\_\-OFF@{PIXEL\_\-OFF}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PIXEL\_\-OFF~0}\label{lc7981_8h_cda2f1b1cf6310700d0d91643c40e068}
 
 
+see lcd\_\-plot\_\-pixel 
+
 \index{lc7981.h@{lc7981.h}!PIXEL\_\-ON@{PIXEL\_\-ON}}
 \index{PIXEL\_\-ON@{PIXEL\_\-ON}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PIXEL\_\-ON~1}\label{lc7981_8h_eb2d212a26da4a5a4d3231b2773023e5}
 
+
+see lcd\_\-plot\_\-pixel 
 
 
 
@@ -236,6 +280,11 @@ This function will plot a bitmap with the upper left corner to the given coordin
  And if you know a better way to do this, tell me.\par
 
 
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]horizontal position of the bitmap \item[{\em y}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap \item[{\em h}]height of the bitmap\end{description}
+\end{Desc}
 This function is dedicated to Greta, one of the most important persons in my life so far.\par
  Even though I can't remember her actual name.\par
  \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}

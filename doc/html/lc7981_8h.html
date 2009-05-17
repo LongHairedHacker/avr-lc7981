@@ -9,7 +9,6 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
   </div>
@@ -25,48 +24,70 @@
 <tr><td colspan="2"><br><h2>Defines</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#e6ff861bd55f4dc46f25f5f6abfca15f">LC7981_H_</a>&nbsp;&nbsp;&nbsp;LC7981_H_</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">protects this file from beeing double included  <a href="#e6ff861bd55f4dc46f25f5f6abfca15f"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#8e945df7ca614325cafa08258e82a63c">LCD_CTRL</a>&nbsp;&nbsp;&nbsp;PORTC</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Port used for control signals.  <a href="#8e945df7ca614325cafa08258e82a63c"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#4b6c8400da9a1ca3d4d83f3ef1f9c34a">LCD_CRTL_DDR</a>&nbsp;&nbsp;&nbsp;DDRC</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Data-Direction-Register for the control signals.  <a href="#4b6c8400da9a1ca3d4d83f3ef1f9c34a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</a>&nbsp;&nbsp;&nbsp;PC4</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Register-Select Pin of the Display.  <a href="#4781e073871c6f27f89b9463ad3a4ed1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#26089a10ddd59a0dc7283c19ccc02533">LCD_RW</a>&nbsp;&nbsp;&nbsp;PC2</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Read-Write-select Pin.  <a href="#26089a10ddd59a0dc7283c19ccc02533"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#1640ffbc0d8ec0f7edb04a2b93918072">LCD_EN</a>&nbsp;&nbsp;&nbsp;PC0</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Strobe Pin.  <a href="#1640ffbc0d8ec0f7edb04a2b93918072"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#25e9d818788f36ed74d7c4579f87f2a6">LCD_DATA</a>&nbsp;&nbsp;&nbsp;PORTD</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Port used for data.  <a href="#25e9d818788f36ed74d7c4579f87f2a6"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#0c114e723aa4c162c415fb6d4d963dd7">LCD_DATA_DDR</a>&nbsp;&nbsp;&nbsp;DDRD</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Data-Direction-Register for Data.  <a href="#0c114e723aa4c162c415fb6d4d963dd7"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#795b48274d3f80bc744a707b67fd93e9">lcd_rs_high</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL |= (1 &lt;&lt; LCD_RS))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the Register-Select pin high.  <a href="#795b48274d3f80bc744a707b67fd93e9"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#6edb13d59460246fb4cc32ada1c9f4a8">lcd_rs_low</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RS))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the Register-Select pin low.  <a href="#6edb13d59460246fb4cc32ada1c9f4a8"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#d0ce3cd9b481370ad4de36eff08440c8">lcd_rw_high</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL |= (1 &lt;&lt; LCD_RW))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the Read-Write-Select pin high.  <a href="#d0ce3cd9b481370ad4de36eff08440c8"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#7f5ebe0ca71b1298a7d3423850cc82b1">lcd_rw_low</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RW))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the Register-Select pin low.  <a href="#7f5ebe0ca71b1298a7d3423850cc82b1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#e14be306d3620577abc8613d40401b04">lcd_en_high</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL |= (1 &lt;&lt; LCD_EN))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the strobe pin high.  <a href="#e14be306d3620577abc8613d40401b04"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#d8dcdb36a9410fd96b2c936b7c9355dd">lcd_en_low</a>()&nbsp;&nbsp;&nbsp;(LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_EN))</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the strobe pin low.  <a href="#d8dcdb36a9410fd96b2c936b7c9355dd"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#90a69d37f5c80f3ded970acf2dacf4c0">LCD_TEXT</a>&nbsp;&nbsp;&nbsp;0</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constant for text mode.  <a href="#90a69d37f5c80f3ded970acf2dacf4c0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#720ef60606ac38ca3a5ab96a9c2b8168">LCD_TEXT_LINES</a>&nbsp;&nbsp;&nbsp;10</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of lines in text mode.  <a href="#720ef60606ac38ca3a5ab96a9c2b8168"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#82f0a630f3c41b5233f2ceb07c7dd736">LCD_TEXT_COLUMNS</a>&nbsp;&nbsp;&nbsp;26</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of columns in text mode.  <a href="#82f0a630f3c41b5233f2ceb07c7dd736"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#dfaedf8da8e73d39a98d709b519a3117">LCD_GRAPHIC</a>&nbsp;&nbsp;&nbsp;1</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constant for graphic mode.  <a href="#dfaedf8da8e73d39a98d709b519a3117"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#51e83be6f6929f2a29d5467cd937dfc6">LCD_GRAPHIC_WIDTH</a>&nbsp;&nbsp;&nbsp;160</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Horizontal display size in pixels.  <a href="#51e83be6f6929f2a29d5467cd937dfc6"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#70265c4f840ef78872243e91c923af2f">LCD_GRAPHIC_HEIGHT</a>&nbsp;&nbsp;&nbsp;80</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Vertical display size in pixels.  <a href="#70265c4f840ef78872243e91c923af2f"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#eb2d212a26da4a5a4d3231b2773023e5">PIXEL_ON</a>&nbsp;&nbsp;&nbsp;1</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">see lcd_plot_pixel  <a href="#eb2d212a26da4a5a4d3231b2773023e5"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#cda2f1b1cf6310700d0d91643c40e068">PIXEL_OFF</a>&nbsp;&nbsp;&nbsp;0</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">see lcd_plot_pixel  <a href="#cda2f1b1cf6310700d0d91643c40e068"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#9b18aca098d68e55bd7dd4b83f4f36e9">lcd_init</a> (uint8_t mode)</td></tr>
 
@@ -108,6 +129,8 @@
 <div class="memdoc">
 
 <p>
+protects this file from beeing double included 
+<p>
 
 </div>
 </div><p>
@@ -122,6 +145,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Data-Direction-Register for the control signals. 
 <p>
 
 </div>
@@ -138,6 +163,8 @@
 <div class="memdoc">
 
 <p>
+Port used for control signals. 
+<p>
 
 </div>
 </div><p>
@@ -152,6 +179,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Port used for data. 
 <p>
 
 </div>
@@ -168,6 +197,8 @@
 <div class="memdoc">
 
 <p>
+Data-Direction-Register for Data. 
+<p>
 
 </div>
 </div><p>
@@ -182,6 +213,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Strobe Pin. 
 <p>
 
 </div>
@@ -203,6 +236,8 @@
 <div class="memdoc">
 
 <p>
+Set the strobe pin high. 
+<p>
 
 </div>
 </div><p>
@@ -223,6 +258,8 @@
 <div class="memdoc">
 
 <p>
+Set the strobe pin low. 
+<p>
 
 </div>
 </div><p>
@@ -237,6 +274,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Constant for graphic mode. 
 <p>
 
 </div>
@@ -253,6 +292,8 @@
 <div class="memdoc">
 
 <p>
+Vertical display size in pixels. 
+<p>
 
 </div>
 </div><p>
@@ -268,6 +309,8 @@
 <div class="memdoc">
 
 <p>
+Horizontal display size in pixels. 
+<p>
 
 </div>
 </div><p>
@@ -282,6 +325,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Register-Select Pin of the Display. 
 <p>
 
 </div>
@@ -303,6 +348,8 @@
 <div class="memdoc">
 
 <p>
+Set the Register-Select pin high. 
+<p>
 
 </div>
 </div><p>
@@ -323,6 +370,8 @@
 <div class="memdoc">
 
 <p>
+Set the Register-Select pin low. 
+<p>
 
 </div>
 </div><p>
@@ -337,6 +386,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Read-Write-select Pin. 
 <p>
 
 </div>
@@ -358,6 +409,8 @@
 <div class="memdoc">
 
 <p>
+Set the Read-Write-Select pin high. 
+<p>
 
 </div>
 </div><p>
@@ -378,6 +431,8 @@
 <div class="memdoc">
 
 <p>
+Set the Register-Select pin low. 
+<p>
 
 </div>
 </div><p>
@@ -392,6 +447,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Constant for text mode. 
 <p>
 
 </div>
@@ -408,6 +465,8 @@
 <div class="memdoc">
 
 <p>
+Number of columns in text mode. 
+<p>
 
 </div>
 </div><p>
@@ -422,6 +481,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+Number of lines in text mode. 
 <p>
 
 </div>
@@ -438,6 +499,8 @@
 <div class="memdoc">
 
 <p>
+see lcd_plot_pixel 
+<p>
 
 </div>
 </div><p>
@@ -452,6 +515,8 @@
 </div>
 <div class="memdoc">
 
+<p>
+see lcd_plot_pixel 
 <p>
 
 </div>
@@ -597,6 +662,15 @@ This function will plot a bitmap with the upper left corner to the given coordin
  don't worry if you don't understand it at first sight. <br>
  And if you know a better way to do this, tell me.<br>
 <p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>bitmap</em>&nbsp;</td><td>pointer to the bitmap in pgmspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap</td></tr>
+  </table>
+</dl>
 This function is dedicated to Greta, one of the most important persons in my life so far.<br>
  Even though I can't remember her actual name.<br>
  
@@ -749,7 +823,7 @@ Writes a command and a data byte to the lcd.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 17:59:55 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 18:34:49 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
