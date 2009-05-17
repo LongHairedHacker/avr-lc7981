@@ -187,7 +187,16 @@ lcd_init set the to default values.
 <p>
 This function will plot a bitmap with the upper left corner to the given coordinates. 
 <p>
-
+<br>
+ If the bitmap doesn't fit on the display at this location, nothing is drawn at all.<br>
+ Unset pixels are treated as transparent <br>
+ This function is by far the most tricky piece of code in this project,<br>
+ don't worry if you don't understand it at first sight. <br>
+ And if you know a better way to do this, tell me.<br>
+<p>
+This function is dedicated to Greta, one of the most important persons in my life so far.<br>
+ Even though I can't remember her actual name.<br>
+ 
 </div>
 </div><p>
 <a class="anchor" name="735111507ed83172f58d5af2953e31c6"></a><!-- doxytag: member="lc7981.c::lcd_plot_pixel" ref="735111507ed83172f58d5af2953e31c6" args="(uint8_t x, uint8_t y, uint8_t set)" -->
@@ -372,7 +381,7 @@ Currently used mode, can be text or graphic.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 16 17:13:00 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 17:59:55 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

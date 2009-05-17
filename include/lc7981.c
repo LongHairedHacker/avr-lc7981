@@ -3,7 +3,24 @@
  *
  *  Created on: 01.05.2009
  *      Author: sebastian
+ *
+ *    This file is part of Sebastians AVR Library for lc7981.
+ *
+ *   Sebastians AVR Library is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   Sebastians AVR Library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with Sebastians AVR Library.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
+
 
 #include "lc7981.h"
 
@@ -251,20 +268,31 @@ uint8_t xr;
 	}
 }
 /**
- * This function will plot a bitmap with the upper left corner to the given coordinates.
+ * This function will plot a bitmap with the upper left corner to the given coordinates.\n
+ * If the bitmap doesn't fit on the display at this location, nothing is drawn at all.\n
+ * Unset pixels are treated as transparent \n
+ * This function is by far the most tricky piece of code in this project,\n
+ * don't worry if you don't understand it at first sight. \n
+ * And if you know a better way to do this, tell me.\n
+ *
+ * This function is dedicated to Greta, one of the most important persons in my life so far.\n
+ * Even though I can't remember her actual name.\n
  */
 void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, const uint8_t *bitmap, uint8_t w, uint8_t h) {
 uint8_t x,y,cur,curs,sr,dr;
 uint16_t pos;
 
+	//check if the bitmap fits on the display
 	if((x_off <= LCD_GRAPHIC_WIDTH - 1) && (y_off <= LCD_GRAPHIC_HEIGHT - 1)
 		&& (x_off + w <= LCD_GRAPHIC_WIDTH - 1) && (y_off + h <= LCD_GRAPHIC_HEIGHT - 1)) {
+		//loop linewise through the bitmap
 		for(y = y_off; y < y_off + h; y++) {
 			cur = 0;
+			//loop pixelwise through each line
 			for(x = x_off - (x_off % 8); x_off + w > x; x++) {
 				dr = x % 8;
 
-				if(dr == 0) {
+				if(dr == 0) { //load the next byte from display memory
 					pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
 					lcd_write_command(0x0A,(uint8_t) pos );
 					lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
@@ -273,21 +301,21 @@ uint16_t pos;
 
 				if((x - x_off) >= 0) {
 					sr = (x - x_off) % 8;
-					if(sr == 0) {
+					if(sr == 0) { //load the next byte of the bitmap
 						curs = pgm_read_byte(bitmap++);
 					}
-
+					//grep the pixel from the bitmap and put into the display byte
 					cur = cur | ((( curs & (1 << sr)) >> sr) << dr);
 				}
 
-				if(dr == 7) {
+				if(dr == 7) { //write the current byte to display memory
 					pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
 					lcd_write_command(0x0A,(uint8_t) pos );
 					lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
 					lcd_write_command(0x0C,cur);
 				}
 			}
-			if(dr != 7) {
+			if(dr != 7) { //write the last byte to display memory if there's one left
 				pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
 				lcd_write_command(0x0A,(uint8_t) pos );
 				lcd_write_command(0x0B,(uint8_t) (pos  >> 8));

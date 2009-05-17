@@ -223,12 +223,22 @@ lcd\_\-init set the to default values.
 \end{Desc}
 \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}}
 \index{lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}!lc7981.h@{lc7981.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x}, \/  uint8\_\-t {\em y}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8h_175d691feb304584c8c18e6456e07401}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8h_175d691feb304584c8c18e6456e07401}
 
 
 This function will plot a bitmap with the upper left corner to the given coordinates. 
 
-\index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
+\par
+ If the bitmap doesn't fit on the display at this location, nothing is drawn at all.\par
+ Unset pixels are treated as transparent \par
+ This function is by far the most tricky piece of code in this project,\par
+ don't worry if you don't understand it at first sight. \par
+ And if you know a better way to do this, tell me.\par
+
+
+This function is dedicated to Greta, one of the most important persons in my life so far.\par
+ Even though I can't remember her actual name.\par
+ \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
 \index{lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pixel (uint8\_\-t {\em x}, \/  uint8\_\-t {\em y}, \/  uint8\_\-t {\em set})}\label{lc7981_8h_735111507ed83172f58d5af2953e31c6}
 
