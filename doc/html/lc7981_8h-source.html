@@ -33,64 +33,73 @@
 <a name="l00019"></a>00019 <span class="comment"> *   You should have received a copy of the GNU General Public License</span>
 <a name="l00020"></a>00020 <span class="comment"> *   along with Sebastians AVR Library.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> */</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#ifndef LC7981_H_</span>
-<a name="l00025"></a><a class="code" href="lc7981_8h.html#e6ff861bd55f4dc46f25f5f6abfca15f">00025</a> <span class="preprocessor"></span><span class="preprocessor">#define LC7981_H_ LC7981_H_     </span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#include &lt;avr/io.h&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;util/delay.h&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> *                      'Do the thing you want to do and let your spirits guide you through.</span>
+<a name="l00024"></a>00024 <span class="comment"> *                      Live a life, worth being remembered.'</span>
+<a name="l00025"></a>00025 <span class="comment"> *                      -- Remembered - Firewind --</span>
+<a name="l00026"></a>00026 <span class="comment"> */</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 
 <a name="l00030"></a>00030 
-<a name="l00031"></a><a class="code" href="lc7981_8h.html#8e945df7ca614325cafa08258e82a63c">00031</a> <span class="preprocessor">#define LCD_CTRL        PORTC           </span>
-<a name="l00032"></a><a class="code" href="lc7981_8h.html#4b6c8400da9a1ca3d4d83f3ef1f9c34a">00032</a> <span class="preprocessor">#define LCD_CRTL_DDR    DDRC    </span>
-<a name="l00033"></a><a class="code" href="lc7981_8h.html#4781e073871c6f27f89b9463ad3a4ed1">00033</a> <span class="preprocessor">#define LCD_RS                  PC4             </span>
-<a name="l00034"></a><a class="code" href="lc7981_8h.html#26089a10ddd59a0dc7283c19ccc02533">00034</a> <span class="preprocessor">#define LCD_RW                  PC2             </span>
-<a name="l00035"></a><a class="code" href="lc7981_8h.html#1640ffbc0d8ec0f7edb04a2b93918072">00035</a> <span class="preprocessor">#define LCD_EN                  PC0             </span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span>
-<a name="l00038"></a>00038 
-<a name="l00039"></a><a class="code" href="lc7981_8h.html#25e9d818788f36ed74d7c4579f87f2a6">00039</a> <span class="preprocessor">#define LCD_DATA                PORTD   </span>
-<a name="l00040"></a><a class="code" href="lc7981_8h.html#0c114e723aa4c162c415fb6d4d963dd7">00040</a> <span class="preprocessor">#define LCD_DATA_DDR    DDRD    </span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="comment">// Macros for (un)setting the control pins</span>
-<a name="l00043"></a><a class="code" href="lc7981_8h.html#795b48274d3f80bc744a707b67fd93e9">00043</a> <span class="preprocessor">#define lcd_rs_high() (LCD_CTRL |= (1 &lt;&lt; LCD_RS))       </span>
-<a name="l00044"></a><a class="code" href="lc7981_8h.html#6edb13d59460246fb4cc32ada1c9f4a8">00044</a> <span class="preprocessor">#define lcd_rs_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RS))       </span>
-<a name="l00045"></a>00045 <span class="preprocessor"></span>
-<a name="l00046"></a><a class="code" href="lc7981_8h.html#d0ce3cd9b481370ad4de36eff08440c8">00046</a> <span class="preprocessor"></span><span class="preprocessor">#define lcd_rw_high() (LCD_CTRL |= (1 &lt;&lt; LCD_RW))       </span>
-<a name="l00047"></a><a class="code" href="lc7981_8h.html#7f5ebe0ca71b1298a7d3423850cc82b1">00047</a> <span class="preprocessor">#define lcd_rw_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RW))       </span>
+<a name="l00031"></a>00031 <span class="preprocessor">#ifndef LC7981_H_</span>
+<a name="l00032"></a><a class="code" href="lc7981_8h.html#e6ff861bd55f4dc46f25f5f6abfca15f">00032</a> <span class="preprocessor"></span><span class="preprocessor">#define LC7981_H_ LC7981_H_     </span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#include &lt;avr/io.h&gt;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &lt;util/delay.h&gt;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a><a class="code" href="lc7981_8h.html#8e945df7ca614325cafa08258e82a63c">00038</a> <span class="preprocessor">#define LCD_CTRL        PORTC           </span>
+<a name="l00039"></a><a class="code" href="lc7981_8h.html#4b6c8400da9a1ca3d4d83f3ef1f9c34a">00039</a> <span class="preprocessor">#define LCD_CRTL_DDR    DDRC    </span>
+<a name="l00040"></a><a class="code" href="lc7981_8h.html#4781e073871c6f27f89b9463ad3a4ed1">00040</a> <span class="preprocessor">#define LCD_RS                  PC4             </span>
+<a name="l00041"></a><a class="code" href="lc7981_8h.html#26089a10ddd59a0dc7283c19ccc02533">00041</a> <span class="preprocessor">#define LCD_RW                  PC2             </span>
+<a name="l00042"></a><a class="code" href="lc7981_8h.html#1640ffbc0d8ec0f7edb04a2b93918072">00042</a> <span class="preprocessor">#define LCD_EN                  PC0             </span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 
+<a name="l00046"></a><a class="code" href="lc7981_8h.html#25e9d818788f36ed74d7c4579f87f2a6">00046</a> <span class="preprocessor">#define LCD_DATA                PORTD   </span>
+<a name="l00047"></a><a class="code" href="lc7981_8h.html#0c114e723aa4c162c415fb6d4d963dd7">00047</a> <span class="preprocessor">#define LCD_DATA_DDR    DDRD    </span>
 <a name="l00048"></a>00048 <span class="preprocessor"></span>
-<a name="l00049"></a><a class="code" href="lc7981_8h.html#e14be306d3620577abc8613d40401b04">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define lcd_en_high() (LCD_CTRL |= (1 &lt;&lt; LCD_EN))       </span>
-<a name="l00050"></a><a class="code" href="lc7981_8h.html#d8dcdb36a9410fd96b2c936b7c9355dd">00050</a> <span class="preprocessor">#define lcd_en_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_EN))       </span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="comment">// Macros for (un)setting the control pins</span>
+<a name="l00050"></a><a class="code" href="lc7981_8h.html#795b48274d3f80bc744a707b67fd93e9">00050</a> <span class="preprocessor">#define lcd_rs_high() (LCD_CTRL |= (1 &lt;&lt; LCD_RS))       </span>
+<a name="l00051"></a><a class="code" href="lc7981_8h.html#6edb13d59460246fb4cc32ada1c9f4a8">00051</a> <span class="preprocessor">#define lcd_rs_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RS))       </span>
 <a name="l00052"></a>00052 <span class="preprocessor"></span>
-<a name="l00053"></a><a class="code" href="lc7981_8h.html#90a69d37f5c80f3ded970acf2dacf4c0">00053</a> <span class="preprocessor">#define LCD_TEXT 0                              </span>
-<a name="l00054"></a><a class="code" href="lc7981_8h.html#720ef60606ac38ca3a5ab96a9c2b8168">00054</a> <span class="preprocessor">#define LCD_TEXT_LINES 10               </span>
-<a name="l00055"></a><a class="code" href="lc7981_8h.html#82f0a630f3c41b5233f2ceb07c7dd736">00055</a> <span class="preprocessor">#define LCD_TEXT_COLUMNS 26             </span>
-<a name="l00056"></a>00056 <span class="preprocessor"></span>
-<a name="l00057"></a><a class="code" href="lc7981_8h.html#dfaedf8da8e73d39a98d709b519a3117">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_GRAPHIC 1                           </span>
-<a name="l00058"></a><a class="code" href="lc7981_8h.html#51e83be6f6929f2a29d5467cd937dfc6">00058</a> <span class="preprocessor">#define LCD_GRAPHIC_WIDTH 160           </span>
-<a name="l00059"></a><a class="code" href="lc7981_8h.html#70265c4f840ef78872243e91c923af2f">00059</a> <span class="preprocessor">#define LCD_GRAPHIC_HEIGHT 80           </span>
-<a name="l00060"></a><a class="code" href="lc7981_8h.html#eb2d212a26da4a5a4d3231b2773023e5">00060</a> <span class="preprocessor">#define PIXEL_ON 1                                      </span>
-<a name="l00061"></a><a class="code" href="lc7981_8h.html#cda2f1b1cf6310700d0d91643c40e068">00061</a> <span class="preprocessor">#define PIXEL_OFF 0                                     </span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>
-<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9b18aca098d68e55bd7dd4b83f4f36e9" title="lcd_init set the to default values.">lcd_init</a>(uint8_t mode);
-<a name="l00064"></a>00064 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#35c08b1fa742e650f4873939707b893b" title="Clears the display by setting the whole memory to 0.">lcd_clear</a>();
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#30251238a49999658455fdb0233757fb">lcd_write_text</a>(<span class="keywordtype">char</span> *txt);
-<a name="l00067"></a>00067 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#dbf47a5efdf02367ded1ebf8f9edb5fe" title="Set the display cursor to a specific location.">lcd_gotoxy</a>(uint8_t x, uint8_t y);
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#735111507ed83172f58d5af2953e31c6" title="set or unset a pixel at the specified location">lcd_plot_pixel</a>(uint8_t x, uint8_t y, uint8_t <span class="keyword">set</span>);
-<a name="l00070"></a>00070 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#f3b584ee8235c6ed4ebefc50f8a95915" title="This function will plot a bitmap with the upper left corner to the given coordinates...">lcd_plot_bitmap</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> uint8_t *bitmap, uint8_t w, uint8_t h);
-<a name="l00071"></a>00071 
+<a name="l00053"></a><a class="code" href="lc7981_8h.html#d0ce3cd9b481370ad4de36eff08440c8">00053</a> <span class="preprocessor"></span><span class="preprocessor">#define lcd_rw_high() (LCD_CTRL |= (1 &lt;&lt; LCD_RW))       </span>
+<a name="l00054"></a><a class="code" href="lc7981_8h.html#7f5ebe0ca71b1298a7d3423850cc82b1">00054</a> <span class="preprocessor">#define lcd_rw_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_RW))       </span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span>
+<a name="l00056"></a><a class="code" href="lc7981_8h.html#e14be306d3620577abc8613d40401b04">00056</a> <span class="preprocessor"></span><span class="preprocessor">#define lcd_en_high() (LCD_CTRL |= (1 &lt;&lt; LCD_EN))       </span>
+<a name="l00057"></a><a class="code" href="lc7981_8h.html#d8dcdb36a9410fd96b2c936b7c9355dd">00057</a> <span class="preprocessor">#define lcd_en_low() (LCD_CTRL &amp;= ~(1 &lt;&lt; LCD_EN))       </span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>
+<a name="l00060"></a><a class="code" href="lc7981_8h.html#90a69d37f5c80f3ded970acf2dacf4c0">00060</a> <span class="preprocessor">#define LCD_TEXT 0                              </span>
+<a name="l00061"></a><a class="code" href="lc7981_8h.html#720ef60606ac38ca3a5ab96a9c2b8168">00061</a> <span class="preprocessor">#define LCD_TEXT_LINES 10               </span>
+<a name="l00062"></a><a class="code" href="lc7981_8h.html#82f0a630f3c41b5233f2ceb07c7dd736">00062</a> <span class="preprocessor">#define LCD_TEXT_COLUMNS 26             </span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span>
+<a name="l00064"></a><a class="code" href="lc7981_8h.html#dfaedf8da8e73d39a98d709b519a3117">00064</a> <span class="preprocessor"></span><span class="preprocessor">#define LCD_GRAPHIC 1                           </span>
+<a name="l00065"></a><a class="code" href="lc7981_8h.html#51e83be6f6929f2a29d5467cd937dfc6">00065</a> <span class="preprocessor">#define LCD_GRAPHIC_WIDTH 160           </span>
+<a name="l00066"></a><a class="code" href="lc7981_8h.html#70265c4f840ef78872243e91c923af2f">00066</a> <span class="preprocessor">#define LCD_GRAPHIC_HEIGHT 80           </span>
+<a name="l00067"></a><a class="code" href="lc7981_8h.html#eb2d212a26da4a5a4d3231b2773023e5">00067</a> <span class="preprocessor">#define PIXEL_ON 1                                      </span>
+<a name="l00068"></a><a class="code" href="lc7981_8h.html#cda2f1b1cf6310700d0d91643c40e068">00068</a> <span class="preprocessor">#define PIXEL_OFF 0                                     </span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9b18aca098d68e55bd7dd4b83f4f36e9" title="lcd_init set the to default values.">lcd_init</a>(uint8_t mode);
+<a name="l00071"></a>00071 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#35c08b1fa742e650f4873939707b893b" title="Clears the display by setting the whole memory to 0.">lcd_clear</a>();
 <a name="l00072"></a>00072 
-<a name="l00073"></a>00073 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#b4f286d6a313df7a5f692e0b4a9509ad" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
-<a name="l00074"></a>00074 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#b69146a9179fc5b5deef3fc61cf0208c" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data);
-<a name="l00075"></a>00075 <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8c.html#6334333537ad1d0bd51cba1e80f32e74" title="Reads a byte from the display memory.">lcd_read_byte</a>();
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="preprocessor">#endif </span><span class="comment">/* LC7981_H_ */</span>
+<a name="l00073"></a>00073 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#30251238a49999658455fdb0233757fb">lcd_write_text</a>(<span class="keywordtype">char</span> *txt);
+<a name="l00074"></a>00074 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#dbf47a5efdf02367ded1ebf8f9edb5fe" title="Set the display cursor to a specific location.">lcd_gotoxy</a>(uint8_t x, uint8_t y);
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#735111507ed83172f58d5af2953e31c6" title="set or unset a pixel at the specified location">lcd_plot_pixel</a>(uint8_t x, uint8_t y, uint8_t <span class="keyword">set</span>);
+<a name="l00077"></a>00077 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#f3b584ee8235c6ed4ebefc50f8a95915" title="This function will plot a bitmap with the upper left corner to the given coordinates...">lcd_plot_bitmap</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> uint8_t *bitmap, uint8_t w, uint8_t h);
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9bbbc52f3cb24a861d11b08e1c14bca2">lcd_plot_char</a>(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, <span class="keyword">const</span> uint8_t* font);
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#b4f286d6a313df7a5f692e0b4a9509ad" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
+<a name="l00083"></a>00083 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#b69146a9179fc5b5deef3fc61cf0208c" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data);
+<a name="l00084"></a>00084 <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8c.html#6334333537ad1d0bd51cba1e80f32e74" title="Reads a byte from the display memory.">lcd_read_byte</a>();
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif </span><span class="comment">/* LC7981_H_ */</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 18:34:49 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 19 21:40:21 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

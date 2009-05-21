@@ -21,7 +21,11 @@ void {\bf lcd\_\-gotoxy} (uint8\_\-t x, uint8\_\-t y)
 void {\bf lcd\_\-plot\_\-pixel} (uint8\_\-t x, uint8\_\-t y, uint8\_\-t set)
 \begin{CompactList}\small\item\em set or unset a pixel at the specified location \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const uint8\_\-t $\ast$bitmap, uint8\_\-t w, uint8\_\-t h)
-\begin{CompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{CompactList}\item 
+void {\bf lcd\_\-plot\_\-char} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, uint8\_\-t c, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
+\item 
+void {\bf lcd\_\-plot\_\-text} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const char $\ast$text, const uint8\_\-t $\ast$font)
+\end{CompactItemize}
 \subsection*{Variables}
 \begin{CompactItemize}
 \item 
@@ -68,7 +72,7 @@ lcd\_\-init set the to default values.
 \end{Desc}
 \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}}
 \index{lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}!lc7981.c@{lc7981.c}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8c_f3b584ee8235c6ed4ebefc50f8a95915}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8c_f3b584ee8235c6ed4ebefc50f8a95915}
 
 
 This function will plot a bitmap with the upper left corner to the given coordinates. 
@@ -88,7 +92,12 @@ This function will plot a bitmap with the upper left corner to the given coordin
 \end{Desc}
 This function is dedicated to Greta, one of the most important persons in my life so far.\par
  Even though I can't remember her actual name.\par
- \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
+ \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}}
+\index{lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}!lc7981.c@{lc7981.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-char (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  uint8\_\-t {\em c}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  const uint8\_\-t $\ast$ {\em font})\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8c_9bbbc52f3cb24a861d11b08e1c14bca2}
+
+
+\index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
 \index{lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pixel (uint8\_\-t {\em x}, \/  uint8\_\-t {\em y}, \/  uint8\_\-t {\em set})}\label{lc7981_8c_735111507ed83172f58d5af2953e31c6}
 
@@ -100,6 +109,11 @@ set or unset a pixel at the specified location
 \begin{description}
 \item[{\em x}]horizontal position of the pixel (starts at 0) \item[{\em y}]horizontal position of the pixel (starts at 0) \item[{\em set}]can be PIXEL\_\-ON or PIXEL\_\-OFF \end{description}
 \end{Desc}
+\index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-text@{lcd\_\-plot\_\-text}}
+\index{lcd\_\-plot\_\-text@{lcd\_\-plot\_\-text}!lc7981.c@{lc7981.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-text (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const char $\ast$ {\em text}, \/  const uint8\_\-t $\ast$ {\em font})}\label{lc7981_8c_1e956901a8e75f3d7264d8e0e9ccaf60}
+
+
 \index{lc7981.c@{lc7981.c}!lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}}
 \index{lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t lcd\_\-read\_\-byte ()\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8c_6334333537ad1d0bd51cba1e80f32e74}

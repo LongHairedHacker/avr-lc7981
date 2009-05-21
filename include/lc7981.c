@@ -267,6 +267,7 @@ uint8_t xr;
 
 	}
 }
+
 /**
  * This function will plot a bitmap with the upper left corner to the given coordinates.\n
  * If the bitmap doesn't fit on the display at this location, nothing is drawn at all.\n
@@ -333,3 +334,34 @@ uint16_t pos;
 
 	}
 }
+
+inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t* font) {
+const uint8_t *letter;
+uint8_t fsize;
+
+	fsize = fh * fw / 8;
+	letter = font + c * fsize -1;
+
+	lcd_plot_bitmap(x_off,y_off,letter,fw,fh);
+
+}
+
+void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font) {
+
+while(*text) {
+	lcd_plot_char(x_off,y_off,(uint8_t) *text,fw,fh,font);
+	x_off += fw;
+	text++;
+}
+
+
+}
+
+void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font) {
+
+
+
+}
+
+
+

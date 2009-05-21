@@ -19,7 +19,14 @@
  *   You should have received a copy of the GNU General Public License
  *   along with Sebastians AVR Library.  If not, see <http://www.gnu.org/licenses/>.
  *
+ *
+ *			'Do the thing you want to do and let your spirits guide you through.
+ *			Live a life, worth being remembered.'
+ *			-- Remembered - Firewind --
  */
+
+
+
 
 #ifndef LC7981_H_
 #define LC7981_H_ LC7981_H_ 	//!< protects this file from beeing double included
@@ -68,6 +75,9 @@ inline void lcd_gotoxy(uint8_t x, uint8_t y);
 
 void lcd_plot_pixel(uint8_t x, uint8_t y, uint8_t set);
 void lcd_plot_bitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t w, uint8_t h);
+
+inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t* font);
+void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font);
 
 
 inline void lcd_strobe();

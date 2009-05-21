@@ -44,6 +44,10 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#f3b584ee8235c6ed4ebefc50f8a95915">lcd_plot_bitmap</a> (uint8_t x_off, uint8_t y_off, const uint8_t *bitmap, uint8_t w, uint8_t h)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This function will plot a bitmap with the upper left corner to the given coordinates.  <a href="#f3b584ee8235c6ed4ebefc50f8a95915"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#9bbbc52f3cb24a861d11b08e1c14bca2">lcd_plot_char</a> (uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t *font)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#1e956901a8e75f3d7264d8e0e9ccaf60">lcd_plot_text</a> (uint8_t x_off, uint8_t y_off, const char *text, const uint8_t *font)</td></tr>
+
 <tr><td colspan="2"><br><h2>Variables</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#a29c0577fe01129f48b5b21301d3ea49">lcd_mode</a></td></tr>
 
@@ -177,7 +181,7 @@ lcd_init set the to default values.
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td width="100%"></td>
+          <td></td><td></td><td width="100%"><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -205,6 +209,59 @@ This function will plot a bitmap with the upper left corner to the given coordin
 This function is dedicated to Greta, one of the most important persons in my life so far.<br>
  Even though I can't remember her actual name.<br>
  
+</div>
+</div><p>
+<a class="anchor" name="9bbbc52f3cb24a861d11b08e1c14bca2"></a><!-- doxytag: member="lc7981.c::lcd_plot_char" ref="9bbbc52f3cb24a861d11b08e1c14bca2" args="(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t *font)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_plot_char           </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>x_off</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>y_off</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>fw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>fh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&nbsp;</td>
+          <td class="paramname"> <em>font</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
 </div>
 </div><p>
 <a class="anchor" name="735111507ed83172f58d5af2953e31c6"></a><!-- doxytag: member="lc7981.c::lcd_plot_pixel" ref="735111507ed83172f58d5af2953e31c6" args="(uint8_t x, uint8_t y, uint8_t set)" -->
@@ -248,6 +305,47 @@ set or unset a pixel at the specified location
     <tr><td valign="top"></td><td valign="top"><em>set</em>&nbsp;</td><td>can be PIXEL_ON or PIXEL_OFF </td></tr>
   </table>
 </dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1e956901a8e75f3d7264d8e0e9ccaf60"></a><!-- doxytag: member="lc7981.c::lcd_plot_text" ref="1e956901a8e75f3d7264d8e0e9ccaf60" args="(uint8_t x_off, uint8_t y_off, const char *text, const uint8_t *font)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_plot_text           </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>x_off</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&nbsp;</td>
+          <td class="paramname"> <em>y_off</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&nbsp;</td>
+          <td class="paramname"> <em>font</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
 
 </div>
 </div><p>
@@ -389,7 +487,7 @@ Currently used mode, can be text or graphic.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 18:34:49 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 19 21:40:21 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
