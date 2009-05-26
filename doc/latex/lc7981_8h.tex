@@ -67,6 +67,8 @@ void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x, uint8\_\-t y, const uint8\_\-t $
 \begin{CompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-char} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, uint8\_\-t c, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
 \item 
+void {\bf lcd\_\-plot\_\-text} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const char $\ast$text, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
+\item 
 void {\bf lcd\_\-strobe} ()
 \begin{CompactList}\small\item\em Generates the strobe signal for writing data. \item\end{CompactList}\item 
 void {\bf lcd\_\-write\_\-command} (uint8\_\-t cmd, uint8\_\-t data)
@@ -269,7 +271,7 @@ lcd\_\-init set the to default values.
 \end{Desc}
 \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}}
 \index{lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}!lc7981.h@{lc7981.h}}
-\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8h_175d691feb304584c8c18e6456e07401}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const uint8\_\-t $\ast$ {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8h_175d691feb304584c8c18e6456e07401}
 
 
 This function will plot a bitmap with the upper left corner to the given coordinates. 
@@ -306,6 +308,11 @@ set or unset a pixel at the specified location
 \begin{description}
 \item[{\em x}]horizontal position of the pixel (starts at 0) \item[{\em y}]horizontal position of the pixel (starts at 0) \item[{\em set}]can be PIXEL\_\-ON or PIXEL\_\-OFF \end{description}
 \end{Desc}
+\index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-text@{lcd\_\-plot\_\-text}}
+\index{lcd\_\-plot\_\-text@{lcd\_\-plot\_\-text}!lc7981.h@{lc7981.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-text (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const char $\ast$ {\em text}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  const uint8\_\-t $\ast$ {\em font})}\label{lc7981_8h_324c97a9fc335bb59fb6f2f56d729dd5}
+
+
 \index{lc7981.h@{lc7981.h}!lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}}
 \index{lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}!lc7981.h@{lc7981.h}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t lcd\_\-read\_\-byte ()\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8h_6334333537ad1d0bd51cba1e80f32e74}
