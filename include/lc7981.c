@@ -36,8 +36,7 @@ void lcd_init(uint8_t mode) {
 
 	LCD_DATA_DDR = 0xFF;
 	LCD_DATA = 0;
-	LCD_CRTL_DDR = 0xFF;
-	//|= (1 << LCD_RS) | (1 << LCD_RW) | (1 << LCD_EN) | (1 << LCD_CS) | (1 << LCD_RST);
+	LCD_CRTL_DDR |= (1 << LCD_RS) | (1 << LCD_RW) | (1 << LCD_EN);
 	LCD_CTRL = 0;
 
 

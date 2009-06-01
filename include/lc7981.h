@@ -35,11 +35,11 @@
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 
-#define LCD_CTRL 	PORTC 		//!< Port used for control signals
-#define LCD_CRTL_DDR	DDRC 	//!< Data-Direction-Register for the control signals
-#define LCD_RS			PC4		//!< Register-Select Pin of the Display
-#define LCD_RW			PC2		//!< Read-Write-select Pin
-#define LCD_EN			PC0		//!< Strobe Pin
+#define LCD_CTRL 	PORTA		//!< Port used for control signals
+#define LCD_CRTL_DDR	DDRA 	//!< Data-Direction-Register for the control signals
+#define LCD_RS			PA4		//!< Register-Select Pin of the Display
+#define LCD_RW			PA2		//!< Read-Write-select Pin
+#define LCD_EN			PA0		//!< Strobe Pin
 
 
 

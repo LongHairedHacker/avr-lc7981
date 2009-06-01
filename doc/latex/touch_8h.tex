@@ -1,0 +1,105 @@
+\section{include/touch.h File Reference}
+\label{touch_8h}\index{include/touch.h@{include/touch.h}}
+{\tt \#include \char`\"{}adc.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf TOUCH\_\-H\_\-}~TOUCH\_\-H\_\-
+\begin{CompactList}\small\item\em \doxyref{touch.h}{p.}{touch_8h} \item\end{CompactList}\item 
+\#define {\bf TOUCH\_\-PORT}~PORTA
+\item 
+\#define {\bf TOUCH\_\-PIN}~PINA
+\item 
+\#define {\bf TOUCH\_\-DDR}~DDRA
+\item 
+\#define {\bf TOUCH\_\-X1}~PA1
+\item 
+\#define {\bf TOUCH\_\-X2}~PA3
+\item 
+\#define {\bf TOUCH\_\-Y1}~PA5
+\item 
+\#define {\bf TOUCH\_\-Y2}~PA7
+\item 
+\#define {\bf TOUCH\_\-PRESSED\_\-LEVEL}~1000
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+uint8\_\-t {\bf touch\_\-is\_\-pressed} ()
+\begin{CompactList}\small\item\em This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC. \item\end{CompactList}\item 
+int16\_\-t {\bf touch\_\-readX} ()
+\item 
+int16\_\-t {\bf touch\_\-readY} ()
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{touch.h@{touch.h}!TOUCH\_\-DDR@{TOUCH\_\-DDR}}
+\index{TOUCH\_\-DDR@{TOUCH\_\-DDR}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-DDR~DDRA}\label{touch_8h_7df7927e1c0467a8e462b483a7da62c7}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-H\_\-@{TOUCH\_\-H\_\-}}
+\index{TOUCH\_\-H\_\-@{TOUCH\_\-H\_\-}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-H\_\-~TOUCH\_\-H\_\-}\label{touch_8h_c7d5ec105ddb1a3240d9f8b1dc259974}
+
+
+\doxyref{touch.h}{p.}{touch_8h} 
+
+Created on: 29.05.2009 Author: sebastian \index{touch.h@{touch.h}!TOUCH\_\-PIN@{TOUCH\_\-PIN}}
+\index{TOUCH\_\-PIN@{TOUCH\_\-PIN}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-PIN~PINA}\label{touch_8h_eccf4c5be8d2e85e37d07d834673ce29}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-PORT@{TOUCH\_\-PORT}}
+\index{TOUCH\_\-PORT@{TOUCH\_\-PORT}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-PORT~PORTA}\label{touch_8h_2ea8f9960f5f713995fd0e1304a33831}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-PRESSED\_\-LEVEL@{TOUCH\_\-PRESSED\_\-LEVEL}}
+\index{TOUCH\_\-PRESSED\_\-LEVEL@{TOUCH\_\-PRESSED\_\-LEVEL}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-PRESSED\_\-LEVEL~1000}\label{touch_8h_7f34b02cb67c42f6d7b862a061496da7}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-X1@{TOUCH\_\-X1}}
+\index{TOUCH\_\-X1@{TOUCH\_\-X1}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-X1~PA1}\label{touch_8h_68fb42f50f3eb1acfc00869488260dd8}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-X2@{TOUCH\_\-X2}}
+\index{TOUCH\_\-X2@{TOUCH\_\-X2}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-X2~PA3}\label{touch_8h_f14aca3b903c90c70433d41fdb840a93}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-Y1@{TOUCH\_\-Y1}}
+\index{TOUCH\_\-Y1@{TOUCH\_\-Y1}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-Y1~PA5}\label{touch_8h_2168431fed386ed4cfec1127b055652a}
+
+
+\index{touch.h@{touch.h}!TOUCH\_\-Y2@{TOUCH\_\-Y2}}
+\index{TOUCH\_\-Y2@{TOUCH\_\-Y2}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TOUCH\_\-Y2~PA7}\label{touch_8h_347b052e8cb9e548e2aaebbb9d8ed405}
+
+
+
+
+\subsection{Function Documentation}
+\index{touch.h@{touch.h}!touch\_\-is\_\-pressed@{touch\_\-is\_\-pressed}}
+\index{touch\_\-is\_\-pressed@{touch\_\-is\_\-pressed}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t touch\_\-is\_\-pressed ()}\label{touch_8h_215947ded979abf11d490536508ecafc}
+
+
+This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC. 
+
+If the ADC-Value is less then TOUCH\_\-PRESSED\_\-LEVEL, the function will return 1. \begin{Desc}
+\item[Returns:]1 if pressed else 0 \end{Desc}
+\index{touch.h@{touch.h}!touch\_\-readX@{touch\_\-readX}}
+\index{touch\_\-readX@{touch\_\-readX}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t touch\_\-readX ()}\label{touch_8h_dbea78d45cc89e43f7510ebf6eb01ac0}
+
+
+\index{touch.h@{touch.h}!touch\_\-readY@{touch\_\-readY}}
+\index{touch\_\-readY@{touch\_\-readY}!touch.h@{touch.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t touch\_\-readY ()}\label{touch_8h_cdce8a6997f2d00dbfcb61be2e67e886}
+
+

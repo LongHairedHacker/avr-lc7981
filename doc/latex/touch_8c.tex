@@ -1,0 +1,34 @@
+\section{include/touch.c File Reference}
+\label{touch_8c}\index{include/touch.c@{include/touch.c}}
+{\tt \#include \char`\"{}touch.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+uint8\_\-t {\bf touch\_\-is\_\-pressed} ()
+\begin{CompactList}\small\item\em This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC. \item\end{CompactList}\item 
+int16\_\-t {\bf touch\_\-readX} ()
+\item 
+int16\_\-t {\bf touch\_\-readY} ()
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{touch.c@{touch.c}!touch\_\-is\_\-pressed@{touch\_\-is\_\-pressed}}
+\index{touch\_\-is\_\-pressed@{touch\_\-is\_\-pressed}!touch.c@{touch.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t touch\_\-is\_\-pressed ()}\label{touch_8c_215947ded979abf11d490536508ecafc}
+
+
+This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC. 
+
+If the ADC-Value is less then TOUCH\_\-PRESSED\_\-LEVEL, the function will return 1. \begin{Desc}
+\item[Returns:]1 if pressed else 0 \end{Desc}
+\index{touch.c@{touch.c}!touch\_\-readX@{touch\_\-readX}}
+\index{touch\_\-readX@{touch\_\-readX}!touch.c@{touch.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t touch\_\-readX ()}\label{touch_8c_dbea78d45cc89e43f7510ebf6eb01ac0}
+
+
+\index{touch.c@{touch.c}!touch\_\-readY@{touch\_\-readY}}
+\index{touch\_\-readY@{touch\_\-readY}!touch.c@{touch.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t touch\_\-readY ()}\label{touch_8c_cdce8a6997f2d00dbfcb61be2e67e886}
+
+
