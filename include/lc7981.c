@@ -174,7 +174,14 @@ uint16_t i;
 }
 
 
-
+/**
+ * Outputs text in at the current cursor position.
+ * If a \\n occurs in the last line of the display,
+ * all the other line will be 'scrolled' up.
+ * This function is textmode only.
+ * The the second line becomes the first, the third the second and so on ...
+ * @param txt the text
+ */
 void lcd_write_text(char *txt) {
 uint8_t c,tmp,x,y;
 
@@ -275,14 +282,13 @@ uint8_t xr;
  * don't worry if you don't understand it at first sight. \n
  * And if you know a better way to do this, tell me.\n
  *
- * @param x horizontal position of the bitmap
- * @param y vertical position of the bitmap
+ * @param x_off horizontal position of the bitmap
+ * @param y_off vertical position of the bitmap
  * @param bitmap pointer to the bitmap in pgmspace
  * @param w width of the bitmap
  * @param h height of the bitmap
  *
  * This function is dedicated to Greta, one of the most important persons in my life so far.\n
- * Even though I can't remember her actual name.\n
  *
  */
 void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, const uint8_t *bitmap, uint8_t w, uint8_t h) {
@@ -334,6 +340,25 @@ uint16_t pos;
 	}
 }
 
+
+/**
+ * Plots a single character in graphicmode.
+ * Each character of the font is stored linewise. \n
+ * This means for a 8x8 Pixel font the 8 bytes are needed. \n
+ * The first byte is the first line and the last byte is the last line. \n
+ * The next 8byte are the next character.\n
+ * \n
+ * If the position is too close to the display edge so it can't be displayed completely,\n
+ * It won't be displayed at all.
+ *
+ * @param x_off horizontal position of the character
+ * @param y_off vertical position of the character
+ * @param c the character or it's ascii code
+ * @param fw width of the font
+ * @param fh height of the font
+ * @param font pointer to the flash area where the font is stored
+ *
+ */
 inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t* font) {
 const uint8_t *letter;
 uint8_t fsize;
@@ -345,6 +370,19 @@ uint8_t fsize;
 
 }
 
+ /**
+ * Plots a text using lcd_plot_char.
+ * @param x_off horizontal position of the character
+ * @param y_off vertical position of the character
+ * @param text the text that is plotted
+ * @param fw width of the font
+ * @param fh height of the font
+ * @param font pointer to the flash area where the font is stored
+ *
+ *
+ *
+ * @see lcd_plot_char
+ */
 void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font) {
 
 while(*text) {

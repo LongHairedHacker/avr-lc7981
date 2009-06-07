@@ -20,7 +20,7 @@
 <a name="l00006"></a>00006 <span class="comment"> *</span>
 <a name="l00007"></a>00007 <span class="comment"> *    This file is part of Sebastians AVR Library for lc7981.</span>
 <a name="l00008"></a>00008 <span class="comment"> *</span>
-<a name="l00009"></a>00009 <span class="comment"> *   Sebastians AVR Library is free software: you can redistribute it and/or modify</span>
+<a name="l00009"></a>00009 <span class="comment"> *   Sebastians AVR Library for lc789 is free software: you can redistribute it and/or modify</span>
 <a name="l00010"></a>00010 <span class="comment"> *   it under the terms of the GNU General Public License as published by</span>
 <a name="l00011"></a>00011 <span class="comment"> *   the Free Software Foundation, either version 3 of the License, or</span>
 <a name="l00012"></a>00012 <span class="comment"> *   (at your option) any later version.</span>
@@ -84,14 +84,14 @@
 <a name="l00070"></a>00070 <span class="preprocessor"></span><span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9b18aca098d68e55bd7dd4b83f4f36e9" title="lcd_init set the to default values.">lcd_init</a>(uint8_t mode);
 <a name="l00071"></a>00071 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#35c08b1fa742e650f4873939707b893b" title="Clears the display by setting the whole memory to 0.">lcd_clear</a>();
 <a name="l00072"></a>00072 
-<a name="l00073"></a>00073 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#30251238a49999658455fdb0233757fb">lcd_write_text</a>(<span class="keywordtype">char</span> *txt);
+<a name="l00073"></a>00073 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#30251238a49999658455fdb0233757fb" title="Outputs text in at the current cursor position.">lcd_write_text</a>(<span class="keywordtype">char</span> *txt);
 <a name="l00074"></a>00074 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#dbf47a5efdf02367ded1ebf8f9edb5fe" title="Set the display cursor to a specific location.">lcd_gotoxy</a>(uint8_t x, uint8_t y);
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#735111507ed83172f58d5af2953e31c6" title="set or unset a pixel at the specified location">lcd_plot_pixel</a>(uint8_t x, uint8_t y, uint8_t <span class="keyword">set</span>);
 <a name="l00077"></a>00077 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#f3b584ee8235c6ed4ebefc50f8a95915" title="This function will plot a bitmap with the upper left corner to the given coordinates...">lcd_plot_bitmap</a>(uint8_t x, uint8_t y, <span class="keyword">const</span> uint8_t *bitmap, uint8_t w, uint8_t h);
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9bbbc52f3cb24a861d11b08e1c14bca2">lcd_plot_char</a>(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, <span class="keyword">const</span> uint8_t* font);
-<a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#324c97a9fc335bb59fb6f2f56d729dd5">lcd_plot_text</a>(uint8_t x_off, uint8_t y_off, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, uint8_t fw, uint8_t fh, <span class="keyword">const</span> uint8_t *font);
+<a name="l00079"></a>00079 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#9bbbc52f3cb24a861d11b08e1c14bca2" title="Plots a single character in graphicmode.">lcd_plot_char</a>(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, <span class="keyword">const</span> uint8_t* font);
+<a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#324c97a9fc335bb59fb6f2f56d729dd5" title="Plots a text using lcd_plot_char.">lcd_plot_text</a>(uint8_t x_off, uint8_t y_off, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, uint8_t fw, uint8_t fh, <span class="keyword">const</span> uint8_t *font);
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082 
 <a name="l00083"></a>00083 <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#b4f286d6a313df7a5f692e0b4a9509ad" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
@@ -100,7 +100,7 @@
 <a name="l00086"></a>00086 
 <a name="l00087"></a>00087 <span class="preprocessor">#endif </span><span class="comment">/* LC7981_H_ */</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jun 1 14:55:44 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 7 14:38:31 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>

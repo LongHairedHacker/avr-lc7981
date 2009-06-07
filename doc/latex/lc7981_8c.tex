@@ -15,7 +15,7 @@ void {\bf lcd\_\-strobe} ()
 void {\bf lcd\_\-clear} ()
 \begin{CompactList}\small\item\em Clears the display by setting the whole memory to 0. \item\end{CompactList}\item 
 void {\bf lcd\_\-write\_\-text} (char $\ast$txt)
-\item 
+\begin{CompactList}\small\item\em Outputs text in at the current cursor position. \item\end{CompactList}\item 
 void {\bf lcd\_\-gotoxy} (uint8\_\-t x, uint8\_\-t y)
 \begin{CompactList}\small\item\em Set the display cursor to a specific location. \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-pixel} (uint8\_\-t x, uint8\_\-t y, uint8\_\-t set)
@@ -23,9 +23,9 @@ void {\bf lcd\_\-plot\_\-pixel} (uint8\_\-t x, uint8\_\-t y, uint8\_\-t set)
 void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const uint8\_\-t $\ast$bitmap, uint8\_\-t w, uint8\_\-t h)
 \begin{CompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-char} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, uint8\_\-t c, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
-\item 
+\begin{CompactList}\small\item\em Plots a single character in graphicmode. \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-text} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const char $\ast$text, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
-\item 
+\begin{CompactList}\small\item\em Plots a text using lcd\_\-plot\_\-char. \item\end{CompactList}\item 
 void {\bf lcd\_\-plot\_\-pgmtext} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const char $\ast$text, uint8\_\-t fw, uint8\_\-t fh, const uint8\_\-t $\ast$font)
 \end{CompactItemize}
 \subsection*{Variables}
@@ -90,15 +90,29 @@ This function will plot a bitmap with the upper left corner to the given coordin
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em x}]horizontal position of the bitmap \item[{\em y}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap \item[{\em h}]height of the bitmap\end{description}
+\item[{\em x\_\-off}]horizontal position of the bitmap \item[{\em y\_\-off}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap \item[{\em h}]height of the bitmap\end{description}
 \end{Desc}
 This function is dedicated to Greta, one of the most important persons in my life so far.\par
- Even though I can't remember her actual name.\par
  \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}}
 \index{lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-char (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  uint8\_\-t {\em c}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  const uint8\_\-t $\ast$ {\em font})\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8c_9bbbc52f3cb24a861d11b08e1c14bca2}
 
 
+Plots a single character in graphicmode. 
+
+Each character of the font is stored linewise. \par
+ This means for a 8x8 Pixel font the 8 bytes are needed. \par
+ The first byte is the first line and the last byte is the last line. \par
+ The next 8byte are the next character.\par
+ \par
+ If the position is too close to the display edge so it can't be displayed completely,\par
+ It won't be displayed at all.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em c}]the character or it's ascii code \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored \end{description}
+\end{Desc}
 \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}}
 \index{lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pgmtext (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const char $\ast$ {\em text}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  const uint8\_\-t $\ast$ {\em font})}\label{lc7981_8c_cba3fd3277d8785693564bb296d53049}
@@ -121,6 +135,15 @@ set or unset a pixel at the specified location
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-text (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  const char $\ast$ {\em text}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  const uint8\_\-t $\ast$ {\em font})}\label{lc7981_8c_324c97a9fc335bb59fb6f2f56d729dd5}
 
 
+Plots a text using lcd\_\-plot\_\-char. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]the text that is plotted \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored\end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_9bbbc52f3cb24a861d11b08e1c14bca2} \end{Desc}
 \index{lc7981.c@{lc7981.c}!lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}}
 \index{lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}!lc7981.c@{lc7981.c}}
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t lcd\_\-read\_\-byte ()\hspace{0.3cm}{\tt  [inline]}}\label{lc7981_8c_6334333537ad1d0bd51cba1e80f32e74}
@@ -158,6 +181,13 @@ Writes a command and a data byte to the lcd.
 \subsubsection{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-write\_\-text (char $\ast$ {\em txt})}\label{lc7981_8c_30251238a49999658455fdb0233757fb}
 
 
+Outputs text in at the current cursor position. 
+
+If a $\backslash$n occurs in the last line of the display, all the other line will be 'scrolled' up. This function is textmode only. The the second line becomes the first, the third the second and so on ... \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em txt}]the text \end{description}
+\end{Desc}
 
 
 \subsection{Variable Documentation}

@@ -97,6 +97,7 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clears the display by setting the whole memory to 0.  <a href="#35c08b1fa742e650f4873939707b893b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#30251238a49999658455fdb0233757fb">lcd_write_text</a> (char *txt)</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Outputs text in at the current cursor position.  <a href="#30251238a49999658455fdb0233757fb"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#dbf47a5efdf02367ded1ebf8f9edb5fe">lcd_gotoxy</a> (uint8_t x, uint8_t y)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the display cursor to a specific location.  <a href="#dbf47a5efdf02367ded1ebf8f9edb5fe"></a><br></td></tr>
@@ -108,8 +109,10 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This function will plot a bitmap with the upper left corner to the given coordinates.  <a href="#175d691feb304584c8c18e6456e07401"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#9bbbc52f3cb24a861d11b08e1c14bca2">lcd_plot_char</a> (uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t *font)</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Plots a single character in graphicmode.  <a href="#9bbbc52f3cb24a861d11b08e1c14bca2"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#324c97a9fc335bb59fb6f2f56d729dd5">lcd_plot_text</a> (uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font)</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Plots a text using lcd_plot_char.  <a href="#324c97a9fc335bb59fb6f2f56d729dd5"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#b4f286d6a313df7a5f692e0b4a9509ad">lcd_strobe</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Generates the strobe signal for writing data.  <a href="#b4f286d6a313df7a5f692e0b4a9509ad"></a><br></td></tr>
@@ -668,15 +671,14 @@ This function will plot a bitmap with the upper left corner to the given coordin
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>bitmap</em>&nbsp;</td><td>pointer to the bitmap in pgmspace </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap</td></tr>
   </table>
 </dl>
 This function is dedicated to Greta, one of the most important persons in my life so far.<br>
- Even though I can't remember her actual name.<br>
  
 </div>
 </div><p>
@@ -730,6 +732,25 @@ This function is dedicated to Greta, one of the most important persons in my lif
 <div class="memdoc">
 
 <p>
+Plots a single character in graphicmode. 
+<p>
+Each character of the font is stored linewise. <br>
+ This means for a 8x8 Pixel font the 8 bytes are needed. <br>
+ The first byte is the first line and the last byte is the last line. <br>
+ The next 8byte are the next character.<br>
+ <br>
+ If the position is too close to the display edge so it can't be displayed completely,<br>
+ It won't be displayed at all.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>c</em>&nbsp;</td><td>the character or it's ascii code </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fw</em>&nbsp;</td><td>width of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fh</em>&nbsp;</td><td>height of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>font</em>&nbsp;</td><td>pointer to the flash area where the font is stored </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
@@ -827,6 +848,19 @@ set or unset a pixel at the specified location
 <div class="memdoc">
 
 <p>
+Plots a text using lcd_plot_char. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>the text that is plotted </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fw</em>&nbsp;</td><td>width of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fh</em>&nbsp;</td><td>height of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>font</em>&nbsp;</td><td>pointer to the flash area where the font is stored</td></tr>
+  </table>
+</dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#9bbbc52f3cb24a861d11b08e1c14bca2" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd></dl>
 
 </div>
 </div><p>
@@ -929,11 +963,18 @@ Writes a command and a data byte to the lcd.
 <div class="memdoc">
 
 <p>
+Outputs text in at the current cursor position. 
+<p>
+If a \n occurs in the last line of the display, all the other line will be 'scrolled' up. This function is textmode only. The the second line becomes the first, the third the second and so on ... <dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>txt</em>&nbsp;</td><td>the text </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jun 1 14:55:44 2009 for glcd by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 7 14:38:31 2009 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.5 </small></address>
 </body>
