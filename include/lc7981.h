@@ -44,7 +44,8 @@
 
 
 #define LCD_DATA		PORTD	//!< Port used for data
-#define LCD_DATA_DDR	DDRD	//!< Data-Direction-Register for Data
+#define LCD_DATA_PIN 	PIND	//!< Port used for reading the data
+#define LCD_DATA_DDR	DDRD	//!< Data-Direction-Register for data
 
 // Macros for (un)setting the control pins
 #define lcd_rs_high() (LCD_CTRL |= (1 << LCD_RS))	//!< Set the Register-Select pin high

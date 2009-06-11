@@ -120,7 +120,7 @@ uint8_t i,data;
 		lcd_rs_low();
 		lcd_rw_high();
 		_delay_us(1);
-		data = (uint8_t) PIND;
+		data = (uint8_t) LCD_DATA_PIN;
 		lcd_en_low();
 		LCD_DATA_DDR = 0xFF;
 	}
