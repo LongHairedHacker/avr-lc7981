@@ -6,6 +6,8 @@
 #include <inttypes.h>
 
 
+#define ADC_READ_CYCELS 5
+
 uint16_t readADC(uint8_t channel);
 
 #endif /* ADC_H */

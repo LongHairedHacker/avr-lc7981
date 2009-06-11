@@ -30,7 +30,8 @@ int main() {
 
 
 		lcd_plot_text(5,5,"Hello",16,16,font_12x16);
-		lcd_plot_text(50,22,"World",16,16,font_12x16);
+		lcd_plot_pgmtext(50,22,PSTR("World"),16,16,font_12x16);
+
 
 		while(!touch_is_pressed());
 

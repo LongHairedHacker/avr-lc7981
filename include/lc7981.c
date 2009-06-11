@@ -187,16 +187,16 @@ uint8_t c,tmp,x,y;
 
 
 	if(lcd_mode == LCD_TEXT) {
-		c = 0;
-		while(!(*txt == 0)) {
+		c = 0; //variable to count the chars in the current line
+		while(!(*txt == 0)) { //loop through the string
 
-			if(*txt == '\n' || c == LCD_TEXT_COLUMNS) {
-				if(lcd_curline < LCD_TEXT_LINES - 1) {
+			if(*txt == '\n' || c == LCD_TEXT_COLUMNS) { //linebreak if //n or if a line is too long
+				if(lcd_curline < LCD_TEXT_LINES - 1) { //next line
 					lcd_curline++;
 					c = 0;
 					lcd_gotoxy(0,lcd_curline);
 				}
-				else {
+				else { //scroll up
 					for(y = 1; y < LCD_TEXT_LINES; y++ ) {
 						for(x = 0; x < LCD_TEXT_COLUMNS; x++) {
 							lcd_gotoxy(x,y);
@@ -205,7 +205,7 @@ uint8_t c,tmp,x,y;
 							lcd_write_command(0x0C,tmp);
 						}
 					}
-					for(x = 0; x < LCD_TEXT_COLUMNS; x++) {
+					for(x = 0; x < LCD_TEXT_COLUMNS; x++) { //free the last line
 						lcd_write_command(0x0C,' ');
 					}
 					lcd_gotoxy(0,LCD_TEXT_LINES-1);
@@ -213,7 +213,7 @@ uint8_t c,tmp,x,y;
 				}
 			}
 
-			if(*txt != '\n') {
+			if(*txt != '\n') { //write the character
 				lcd_write_command(0x0C,*txt);
 				c++;
 			}
@@ -291,13 +291,15 @@ uint8_t xr;
  * This function is dedicated to Greta, one of the most important persons in my life so far.\n
  *
  */
-void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, const uint8_t *bitmap, uint8_t w, uint8_t h) {
+void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, PGM_P bitmap, uint8_t w, uint8_t h) {
 uint8_t x,y,cur,curs,sr,dr;
 uint16_t pos;
 
 	//check if the bitmap fits on the display
 	if((x_off <= LCD_GRAPHIC_WIDTH - 1) && (y_off <= LCD_GRAPHIC_HEIGHT - 1)
 		&& (x_off + w <= LCD_GRAPHIC_WIDTH - 1) && (y_off + h <= LCD_GRAPHIC_HEIGHT - 1)) {
+		curs = 0;
+		dr = 0;
 		//loop linewise through the bitmap
 		for(y = y_off; y < y_off + h; y++) {
 			cur = 0;
@@ -359,8 +361,8 @@ uint16_t pos;
  * @param font pointer to the flash area where the font is stored
  *
  */
-inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, const uint8_t* font) {
-const uint8_t *letter;
+inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font) {
+PGM_P letter;
 uint8_t fsize;
 
 	fsize = fh * fw / 8;
@@ -383,7 +385,7 @@ uint8_t fsize;
  *
  * @see lcd_plot_char
  */
-void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font) {
+void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font) {
 
 while(*text) {
 	lcd_plot_char(x_off,y_off,(uint8_t) *text,fw,fh,font);
@@ -394,10 +396,17 @@ while(*text) {
 
 }
 
-void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, const uint8_t *font) {
+void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font) {
+    uint8_t c;
 
-
-
+	c = pgm_read_byte (text);
+	while (c != 0)
+    {
+		lcd_plot_char(x_off,y_off,c,fw,fh,font);
+		x_off += fw;
+		text++;
+       	c = pgm_read_byte (text);
+    }
 }
 
 
