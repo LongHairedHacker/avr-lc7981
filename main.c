@@ -21,9 +21,6 @@
 
 
 int main() {
-	int16_t posX,posY;
-	uint8_t i;
-	char tmp[10];
 
 
 	lcd_init(LCD_GRAPHIC);

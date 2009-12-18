@@ -69,21 +69,21 @@
 #define PIXEL_OFF 0					//!< see lcd_plot_pixel
 
 void lcd_init(uint8_t mode);
-inline void lcd_clear();
+void lcd_clear();
 
 void lcd_write_text(char *txt);
-inline void lcd_gotoxy(uint8_t x, uint8_t y);
+void lcd_gotoxy(uint8_t x, uint8_t y);
 
 void lcd_plot_pixel(uint8_t x, uint8_t y, uint8_t set);
 void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
 
-inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
+ void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
 void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font);
 void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
 
 
-inline void lcd_strobe();
-inline void lcd_write_command(uint8_t cmd, uint8_t data);
-inline uint8_t lcd_read_byte();
+void lcd_strobe();
+void lcd_write_command(uint8_t cmd, uint8_t data);
+uint8_t lcd_read_byte();
 
 #endif /* LC7981_H_ */

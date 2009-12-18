@@ -82,7 +82,7 @@ void lcd_init(uint8_t mode) {
  *  @param cmd the command byte
  *  @param data the data that is going to be written after the command
  */
-inline void lcd_write_command(uint8_t cmd, uint8_t data) {
+void lcd_write_command(uint8_t cmd, uint8_t data) {
 	_delay_us(30);
 	lcd_rw_low();
 	lcd_rs_high();
@@ -105,7 +105,7 @@ inline void lcd_write_command(uint8_t cmd, uint8_t data) {
  * @return the byte which has been read
  * @see lcd_gotoxy
  */
-inline uint8_t lcd_read_byte() {
+uint8_t lcd_read_byte() {
 uint8_t i,data;
 
 	for(i = 0; i < 2; i++) {
@@ -132,7 +132,7 @@ uint8_t i,data;
  * Generates the strobe signal for writing data.
  * This function is meant for internal usage only.
  */
-inline void lcd_strobe() {
+void lcd_strobe() {
 	lcd_en_high();
 	_delay_us(1);
 	lcd_en_low();
@@ -142,7 +142,7 @@ inline void lcd_strobe() {
 /**
  * Clears the display by setting the whole memory to 0.
  */
-inline void lcd_clear() {
+void lcd_clear() {
 uint16_t i;
 
 	if(lcd_mode == LCD_TEXT) {
@@ -233,7 +233,7 @@ uint8_t c,tmp,x,y;
  * @param y the vertical cursorposition (starts at 0)
  *
  */
-inline void lcd_gotoxy(uint8_t x, uint8_t y) {
+void lcd_gotoxy(uint8_t x, uint8_t y) {
 uint16_t pos;
 
 	if(lcd_mode == LCD_TEXT) {
@@ -361,7 +361,7 @@ uint16_t pos;
  * @param font pointer to the flash area where the font is stored
  *
  */
-inline void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font) {
+void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font) {
 PGM_P letter;
 uint8_t fsize;
 
