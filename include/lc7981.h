@@ -77,13 +77,84 @@ void lcd_gotoxy(uint8_t x, uint8_t y);
 void lcd_plot_pixel(uint8_t x, uint8_t y, uint8_t set);
 void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
 
- void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
+void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
 void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font);
 void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
 
 
-void lcd_strobe();
-void lcd_write_command(uint8_t cmd, uint8_t data);
-uint8_t lcd_read_byte();
+static inline void lcd_strobe();
+static inline void lcd_write_command(uint8_t cmd, uint8_t data);
+static inline uint8_t lcd_read_byte();
+
+
+// Static inline functions, that can be used in the library and in the main programm
+
+
+/**
+ * Generates the strobe signal for writing data.
+ * This function is meant for internal usage only.
+ */
+static inline void lcd_strobe() {
+	lcd_en_high();
+	_delay_us(1);
+	lcd_en_low();
+
+}
+
+
+/**
+ *  Writes a command and a data byte to the lcd.
+ *
+ *  @param cmd the command byte
+ *  @param data the data that is going to be written after the command
+ */
+static inline void lcd_write_command(uint8_t cmd, uint8_t data) {
+	_delay_us(30);
+	lcd_rw_low();
+	lcd_rs_high();
+	LCD_DATA = cmd;
+	_delay_us(1);
+	lcd_strobe();
+
+	lcd_rs_low();
+	LCD_DATA = data;
+	_delay_us(1);
+	lcd_strobe();
+
+}
+
+/**
+ * Reads a byte from the display memory.
+ * lcd_gotoxy can be used to set the location.
+ * Important : lcd_gotoxy doesn't work in graphics mode yet.
+ *
+ * @return the byte which has been read
+ * @see lcd_gotoxy
+ */
+static inline uint8_t lcd_read_byte() {
+uint8_t i,data;
+
+	for(i = 0; i < 2; i++) {
+		_delay_us(30);
+		lcd_rw_low();
+		lcd_rs_high();
+		LCD_DATA = 0x0D;
+		_delay_us(1);
+		lcd_en_high();
+
+		LCD_DATA_DDR = 0x00;
+		lcd_rs_low();
+		lcd_rw_high();
+		_delay_us(1);
+		data = (uint8_t) LCD_DATA_PIN;
+		lcd_en_low();
+		LCD_DATA_DDR = 0xFF;
+	}
+	return data;
+}
+
+
+
+
 
 #endif /* LC7981_H_ */

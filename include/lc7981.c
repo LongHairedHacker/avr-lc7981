@@ -76,68 +76,9 @@ void lcd_init(uint8_t mode) {
 	lcd_clear();
 }
 
-/**
- *  Writes a command and a data byte to the lcd.
- *
- *  @param cmd the command byte
- *  @param data the data that is going to be written after the command
- */
-void lcd_write_command(uint8_t cmd, uint8_t data) {
-	_delay_us(30);
-	lcd_rw_low();
-	lcd_rs_high();
-	LCD_DATA = cmd;
-	_delay_us(1);
-	lcd_strobe();
-
-	lcd_rs_low();
-	LCD_DATA = data;
-	_delay_us(1);
-	lcd_strobe();
-
-}
-
-/**
- * Reads a byte from the display memory.
- * lcd_gotoxy can be used to set the location.
- * Important : lcd_gotoxy doesn't work in graphics mode yet.
- *
- * @return the byte which has been read
- * @see lcd_gotoxy
- */
-uint8_t lcd_read_byte() {
-uint8_t i,data;
-
-	for(i = 0; i < 2; i++) {
-		_delay_us(30);
-		lcd_rw_low();
-		lcd_rs_high();
-		LCD_DATA = 0x0D;
-		_delay_us(1);
-		lcd_en_high();
-
-		LCD_DATA_DDR = 0x00;
-		lcd_rs_low();
-		lcd_rw_high();
-		_delay_us(1);
-		data = (uint8_t) LCD_DATA_PIN;
-		lcd_en_low();
-		LCD_DATA_DDR = 0xFF;
-	}
-	return data;
-}
 
 
-/**
- * Generates the strobe signal for writing data.
- * This function is meant for internal usage only.
- */
-void lcd_strobe() {
-	lcd_en_high();
-	_delay_us(1);
-	lcd_en_low();
 
-}
 
 /**
  * Clears the display by setting the whole memory to 0.
