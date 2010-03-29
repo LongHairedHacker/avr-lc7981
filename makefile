@@ -609,6 +609,7 @@ clean_list :
 
 # Create object files directory
 $(shell mkdir $(OBJDIR) 2>/dev/null)
+$(shell mkdir $(OBJDIR)/include 2>/dev/null)
 
 
 # Include the dependency files.
