@@ -22,9 +22,9 @@
 
 #define TOUCH_PRESSED_LEVEL 1000
 
-uint8_t touch_is_pressed();
+uint8_t touch_is_pressed(void);
 
-int16_t touch_readX();
-int16_t touch_readY() ;
+int16_t touch_readX(void);
+int16_t touch_readY(void);
 
 #endif /* TOUCH_H_ */

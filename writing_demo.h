@@ -13,6 +13,6 @@
 #include "include/adc.h"
 #include "include/touch.h"
 
-void writing_demo();
+void writing_demo(void);
 
 #endif /* PARTICEL_DEMO_H_ */

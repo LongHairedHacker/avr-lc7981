@@ -69,7 +69,7 @@
 #define PIXEL_OFF 0					//!< see lcd_plot_pixel
 
 void lcd_init(uint8_t mode);
-void lcd_clear();
+void lcd_clear(void);
 
 void lcd_write_text(char *txt);
 void lcd_gotoxy(uint8_t x, uint8_t y);
@@ -82,9 +82,9 @@ void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, u
 void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
 
 
-static inline void lcd_strobe();
+static inline void lcd_strobe(void);
 static inline void lcd_write_command(uint8_t cmd, uint8_t data);
-static inline uint8_t lcd_read_byte();
+static inline uint8_t lcd_read_byte(void);
 
 
 // Static inline functions, that can be used in the library and in the main programm
@@ -94,7 +94,7 @@ static inline uint8_t lcd_read_byte();
  * Generates the strobe signal for writing data.
  * This function is meant for internal usage only.
  */
-static inline void lcd_strobe() {
+static inline void lcd_strobe(void) {
 	lcd_en_high();
 	_delay_us(1);
 	lcd_en_low();
@@ -131,7 +131,7 @@ static inline void lcd_write_command(uint8_t cmd, uint8_t data) {
  * @return the byte which has been read
  * @see lcd_gotoxy
  */
-static inline uint8_t lcd_read_byte() {
+static inline uint8_t lcd_read_byte(void) {
 uint8_t i,data;
 
 	for(i = 0; i < 2; i++) {
