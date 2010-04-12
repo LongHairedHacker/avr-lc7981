@@ -1,23 +1,27 @@
 /*
  * lc7981.c
  *
- *  Created on: 01.05.2009
- *      Author: sebastian
+ * Version 0.6 beta
  *
- *    This file is part of Sebastians AVR Library for lc7981.
+ * The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
  *
- *   Sebastians AVR Library is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations
+ * under the License.
  *
- *   Sebastians AVR Library is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
+ * The Original Code is Sebastians AVR Library for lc7981.
  *
- *   You should have received a copy of the GNU General Public License
- *   along with Sebastians AVR Library.  If not, see <http://www.gnu.org/licenses/>.
+ * The Initial Developer of the Original Code is Sebastian Schumb (webmaster@sebastians-site.de).
+ *
+ * Contributor(s): None so far.
+ *
+ * Any version below 0.6 is still licensed under GPL.
+ * The GPLed versions will neither be supported, nor developed any further.
+ *
  *
  */
 
@@ -226,8 +230,8 @@ uint8_t xr;
  * @param x_off horizontal position of the bitmap
  * @param y_off vertical position of the bitmap
  * @param bitmap pointer to the bitmap in pgmspace
- * @param w width of the bitmap
- * @param h height of the bitmap
+ * @param w width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9)
+ * @param h height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)
  *
  * This function is dedicated to Greta, one of the most important persons in my life so far.\n
  *
@@ -337,6 +341,20 @@ while(*text) {
 
 }
 
+/**
+* Plots a text using lcd_plot_char.
+* @param x_off horizontal position of the character
+* @param y_off vertical position of the character
+* @param text flash area where the text is stored
+* @param fw width of the font
+* @param fh height of the font
+* @param font pointer to the flash area where the font is stored
+*
+*
+*
+* @see lcd_plot_char
+* @see lcd_plot_text
+*/
 void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font) {
     uint8_t c;
 

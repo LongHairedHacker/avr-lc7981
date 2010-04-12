@@ -4,28 +4,31 @@
  *  Created on: 01.05.2009
  *      Author: sebastian
  *
- *    This file is part of Sebastians AVR Library for lc7981.
+ * Version 0.6 beta
  *
- *   Sebastians AVR Library for lc789 is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
+ * The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
  *
- *   Sebastians AVR Library is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations
+ * under the License.
  *
- *   You should have received a copy of the GNU General Public License
- *   along with Sebastians AVR Library.  If not, see <http://www.gnu.org/licenses/>.
+ * The Original Code is Sebastians AVR Library for lc7981.
  *
+ * The Initial Developer of the Original Code is Sebastian Schumb (webmaster@sebastians-site.de).
+ *
+ * Contributor(s): None so far.
+ *
+ * Any version below 0.6 is still licensed under GPL.
+ * The GPLed versions will neither be supported, nor developed any further.
  *
  *			'Do the thing you want to do and let your spirits guide you through.
  *			Live a life, worth being remembered.'
  *			-- Remembered - Firewind --
  */
-
-
 
 
 #ifndef LC7981_H_

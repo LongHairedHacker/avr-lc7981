@@ -57,7 +57,7 @@
 \item 
 void {\bf lcd\_\-init} (uint8\_\-t mode)
 \begin{DoxyCompactList}\small\item\em lcd\_\-init set the to default values. \item\end{DoxyCompactList}\item 
-void {\bf lcd\_\-clear} ()
+void {\bf lcd\_\-clear} (void)
 \begin{DoxyCompactList}\small\item\em Clears the display by setting the whole memory to 0. \item\end{DoxyCompactList}\item 
 void {\bf lcd\_\-write\_\-text} (char $\ast$txt)
 \begin{DoxyCompactList}\small\item\em Outputs text in at the current cursor position. \item\end{DoxyCompactList}\item 
@@ -72,12 +72,12 @@ void {\bf lcd\_\-plot\_\-char} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, uint8\
 void {\bf lcd\_\-plot\_\-text} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, const char $\ast$text, uint8\_\-t fw, uint8\_\-t fh, PGM\_\-P font)
 \begin{DoxyCompactList}\small\item\em Plots a text using lcd\_\-plot\_\-char. \item\end{DoxyCompactList}\item 
 void {\bf lcd\_\-plot\_\-pgmtext} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, PGM\_\-P text, uint8\_\-t fw, uint8\_\-t fh, PGM\_\-P font)
-\item 
-static void {\bf lcd\_\-strobe} ()
+\begin{DoxyCompactList}\small\item\em Plots a text using lcd\_\-plot\_\-char. \item\end{DoxyCompactList}\item 
+static void {\bf lcd\_\-strobe} (void)
 \begin{DoxyCompactList}\small\item\em Generates the strobe signal for writing data. \item\end{DoxyCompactList}\item 
 static void {\bf lcd\_\-write\_\-command} (uint8\_\-t cmd, uint8\_\-t data)
 \begin{DoxyCompactList}\small\item\em Writes a command and a data byte to the lcd. \item\end{DoxyCompactList}\item 
-static uint8\_\-t {\bf lcd\_\-read\_\-byte} ()
+static uint8\_\-t {\bf lcd\_\-read\_\-byte} (void)
 \begin{DoxyCompactList}\small\item\em Reads a byte from the display memory. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -202,7 +202,7 @@ see lcd\_\-plot\_\-pixel
 \subsection{Function Documentation}
 \index{lc7981.h@{lc7981.h}!lcd\_\-clear@{lcd\_\-clear}}
 \index{lcd\_\-clear@{lcd\_\-clear}!lc7981.h@{lc7981.h}}
-\subsubsection[{lcd\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-clear ()}\label{lc7981_8h_a35c08b1fa742e650f4873939707b893b}
+\subsubsection[{lcd\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-clear (void)}\label{lc7981_8h_ad235a86241458b1e7b8771688bfdaf9a}
 
 
 Clears the display by setting the whole memory to 0. \index{lc7981.h@{lc7981.h}!lcd\_\-gotoxy@{lcd\_\-gotoxy}}
@@ -239,7 +239,7 @@ This function will plot a bitmap with the upper left corner to the given coordin
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em x\_\-off}]horizontal position of the bitmap \item[{\em y\_\-off}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap \item[{\em h}]height of the bitmap\end{DoxyParams}
+\item[{\em x\_\-off}]horizontal position of the bitmap \item[{\em y\_\-off}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9) \item[{\em h}]height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)\end{DoxyParams}
 This function is dedicated to Greta, one of the most important persons in my life so far.\par
  \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}}
 \index{lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}!lc7981.h@{lc7981.h}}
@@ -260,6 +260,16 @@ Plots a single character in graphicmode. Each character of the font is stored li
 \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}}
 \index{lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}!lc7981.h@{lc7981.h}}
 \subsubsection[{lcd\_\-plot\_\-pgmtext}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pgmtext (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  PGM\_\-P {\em text}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  PGM\_\-P {\em font})}\label{lc7981_8h_a0af06316c8d3d3a57b1ddcf949d85a8c}
+
+
+Plots a text using lcd\_\-plot\_\-char. 
+\begin{DoxyParams}{Parameters}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]flash area where the text is stored \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a2615737020b222e49a4d9c8d08a54f43} 
+
+\doxyref{lcd\_\-plot\_\-text}{p.}{lc7981_8h_a71a77094675e2850e8a4b442fb6a366e} 
+\end{DoxySeeAlso}
 \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
 \index{lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}!lc7981.h@{lc7981.h}}
 \subsubsection[{lcd\_\-plot\_\-pixel}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pixel (uint8\_\-t {\em x}, \/  uint8\_\-t {\em y}, \/  uint8\_\-t {\em set})}\label{lc7981_8h_a735111507ed83172f58d5af2953e31c6}
@@ -281,7 +291,7 @@ Plots a text using lcd\_\-plot\_\-char.
 \end{DoxySeeAlso}
 \index{lc7981.h@{lc7981.h}!lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}}
 \index{lcd\_\-read\_\-byte@{lcd\_\-read\_\-byte}!lc7981.h@{lc7981.h}}
-\subsubsection[{lcd\_\-read\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}static uint8\_\-t lcd\_\-read\_\-byte ()\hspace{0.3cm}{\ttfamily  [inline, static]}}\label{lc7981_8h_a0f6a62f494f3cd66aa1f4a910bca71a8}
+\subsubsection[{lcd\_\-read\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}static uint8\_\-t lcd\_\-read\_\-byte (void)\hspace{0.3cm}{\ttfamily  [inline, static]}}\label{lc7981_8h_a4e0e642817c38e2c73eb6355a45847e0}
 
 
 Reads a byte from the display memory. lcd\_\-gotoxy can be used to set the location. Important : lcd\_\-gotoxy doesn't work in graphics mode yet.
@@ -294,7 +304,7 @@ the byte which has been read
 \end{DoxySeeAlso}
 \index{lc7981.h@{lc7981.h}!lcd\_\-strobe@{lcd\_\-strobe}}
 \index{lcd\_\-strobe@{lcd\_\-strobe}!lc7981.h@{lc7981.h}}
-\subsubsection[{lcd\_\-strobe}]{\setlength{\rightskip}{0pt plus 5cm}static void lcd\_\-strobe ()\hspace{0.3cm}{\ttfamily  [inline, static]}}\label{lc7981_8h_a32fdf2306d469b45e2a3bfd020403d76}
+\subsubsection[{lcd\_\-strobe}]{\setlength{\rightskip}{0pt plus 5cm}static void lcd\_\-strobe (void)\hspace{0.3cm}{\ttfamily  [inline, static]}}\label{lc7981_8h_ae6e048011d567dd2859901544ebf7051}
 
 
 Generates the strobe signal for writing data. This function is meant for internal usage only. \index{lc7981.h@{lc7981.h}!lcd\_\-write\_\-command@{lcd\_\-write\_\-command}}

@@ -39,10 +39,10 @@
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#a347b052e8cb9e548e2aaebbb9d8ed405">TOUCH_Y2</a>&nbsp;&nbsp;&nbsp;PA7</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#a7f34b02cb67c42f6d7b862a061496da7">TOUCH_PRESSED_LEVEL</a>&nbsp;&nbsp;&nbsp;1000</td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#a215947ded979abf11d490536508ecafc">touch_is_pressed</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC.  <a href="#a215947ded979abf11d490536508ecafc"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#adbea78d45cc89e43f7510ebf6eb01ac0">touch_readX</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#acdce8a6997f2d00dbfcb61be2e67e886">touch_readY</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#ad9d13a515a5fa467bbdcdd9d28ba472a">touch_is_pressed</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This functions set 5V to X1 and GND to Y1, the voltage at X2 is measured via the ADC.  <a href="#ad9d13a515a5fa467bbdcdd9d28ba472a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#ab428dce50579a72fb239cacb3d2a2bc8">touch_readX</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="touch_8h.html#adcb34e31728672eaebd034b5376f2752">touch_readY</a> (void)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
 <a class="anchor" id="a7df7927e1c0467a8e462b483a7da62c7"></a><!-- doxytag: member="touch.h::TOUCH_DDR" ref="a7df7927e1c0467a8e462b483a7da62c7" args="" -->
@@ -166,13 +166,14 @@
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a215947ded979abf11d490536508ecafc"></a><!-- doxytag: member="touch.h::touch_is_pressed" ref="a215947ded979abf11d490536508ecafc" args="()" -->
+<a class="anchor" id="ad9d13a515a5fa467bbdcdd9d28ba472a"></a><!-- doxytag: member="touch.h::touch_is_pressed" ref="ad9d13a515a5fa467bbdcdd9d28ba472a" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">uint8_t touch_is_pressed </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -187,13 +188,14 @@
 
 </div>
 </div>
-<a class="anchor" id="adbea78d45cc89e43f7510ebf6eb01ac0"></a><!-- doxytag: member="touch.h::touch_readX" ref="adbea78d45cc89e43f7510ebf6eb01ac0" args="()" -->
+<a class="anchor" id="ab428dce50579a72fb239cacb3d2a2bc8"></a><!-- doxytag: member="touch.h::touch_readX" ref="ab428dce50579a72fb239cacb3d2a2bc8" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int16_t touch_readX </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -204,13 +206,14 @@
 
 </div>
 </div>
-<a class="anchor" id="acdce8a6997f2d00dbfcb61be2e67e886"></a><!-- doxytag: member="touch.h::touch_readY" ref="acdce8a6997f2d00dbfcb61be2e67e886" args="()" -->
+<a class="anchor" id="adcb34e31728672eaebd034b5376f2752"></a><!-- doxytag: member="touch.h::touch_readY" ref="adcb34e31728672eaebd034b5376f2752" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int16_t touch_readY </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -222,7 +225,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2009 for glcd by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Apr 2010 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

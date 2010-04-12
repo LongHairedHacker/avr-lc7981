@@ -79,8 +79,8 @@
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a9b18aca098d68e55bd7dd4b83f4f36e9">lcd_init</a> (uint8_t mode)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">lcd_init set the to default values.  <a href="#a9b18aca098d68e55bd7dd4b83f4f36e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a35c08b1fa742e650f4873939707b893b">lcd_clear</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clears the display by setting the whole memory to 0.  <a href="#a35c08b1fa742e650f4873939707b893b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#ad235a86241458b1e7b8771688bfdaf9a">lcd_clear</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clears the display by setting the whole memory to 0.  <a href="#ad235a86241458b1e7b8771688bfdaf9a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a30251238a49999658455fdb0233757fb">lcd_write_text</a> (char *txt)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Outputs text in at the current cursor position.  <a href="#a30251238a49999658455fdb0233757fb"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#adbf47a5efdf02367ded1ebf8f9edb5fe">lcd_gotoxy</a> (uint8_t x, uint8_t y)</td></tr>
@@ -94,12 +94,13 @@
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a71a77094675e2850e8a4b442fb6a366e">lcd_plot_text</a> (uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Plots a text using lcd_plot_char.  <a href="#a71a77094675e2850e8a4b442fb6a366e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a0af06316c8d3d3a57b1ddcf949d85a8c">lcd_plot_pgmtext</a> (uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a32fdf2306d469b45e2a3bfd020403d76">lcd_strobe</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Generates the strobe signal for writing data.  <a href="#a32fdf2306d469b45e2a3bfd020403d76"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Plots a text using lcd_plot_char.  <a href="#a0af06316c8d3d3a57b1ddcf949d85a8c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051">lcd_strobe</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Generates the strobe signal for writing data.  <a href="#ae6e048011d567dd2859901544ebf7051"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1">lcd_write_command</a> (uint8_t cmd, uint8_t data)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Writes a command and a data byte to the lcd.  <a href="#a31db85f1f48f4802c24218bc165ea4e1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a0f6a62f494f3cd66aa1f4a910bca71a8">lcd_read_byte</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads a byte from the display memory.  <a href="#a0f6a62f494f3cd66aa1f4a910bca71a8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8h.html#a4e0e642817c38e2c73eb6355a45847e0">lcd_read_byte</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads a byte from the display memory.  <a href="#a4e0e642817c38e2c73eb6355a45847e0"></a><br/></td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
 <a class="anchor" id="ae6ff861bd55f4dc46f25f5f6abfca15f"></a><!-- doxytag: member="lc7981.h::LC7981_H_" ref="ae6ff861bd55f4dc46f25f5f6abfca15f" args="" -->
@@ -478,13 +479,14 @@
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a35c08b1fa742e650f4873939707b893b"></a><!-- doxytag: member="lc7981.h::lcd_clear" ref="a35c08b1fa742e650f4873939707b893b" args="()" -->
+<a class="anchor" id="ad235a86241458b1e7b8771688bfdaf9a"></a><!-- doxytag: member="lc7981.h::lcd_clear" ref="ad235a86241458b1e7b8771688bfdaf9a" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void lcd_clear </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -617,8 +619,8 @@
     <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>bitmap</em>&nbsp;</td><td>pointer to the bitmap in pgmspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)</td></tr>
   </table>
   </dd>
 </dl>
@@ -747,6 +749,22 @@
 </div>
 <div class="memdoc">
 
+<p>Plots a text using lcd_plot_char. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the character </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>flash area where the text is stored </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fw</em>&nbsp;</td><td>width of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>fh</em>&nbsp;</td><td>height of the font </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>font</em>&nbsp;</td><td>pointer to the flash area where the font is stored</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#a2615737020b222e49a4d9c8d08a54f43" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd>
+<dd>
+<a class="el" href="lc7981_8h.html#a71a77094675e2850e8a4b442fb6a366e" title="Plots a text using lcd_plot_char.">lcd_plot_text</a> </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a735111507ed83172f58d5af2953e31c6"></a><!-- doxytag: member="lc7981.h::lcd_plot_pixel" ref="a735111507ed83172f58d5af2953e31c6" args="(uint8_t x, uint8_t y, uint8_t set)" -->
@@ -857,13 +875,14 @@
 
 </div>
 </div>
-<a class="anchor" id="a0f6a62f494f3cd66aa1f4a910bca71a8"></a><!-- doxytag: member="lc7981.h::lcd_read_byte" ref="a0f6a62f494f3cd66aa1f4a910bca71a8" args="()" -->
+<a class="anchor" id="a4e0e642817c38e2c73eb6355a45847e0"></a><!-- doxytag: member="lc7981.h::lcd_read_byte" ref="a4e0e642817c38e2c73eb6355a45847e0" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">static uint8_t lcd_read_byte </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [inline, static]</code></td>
@@ -879,13 +898,14 @@
 
 </div>
 </div>
-<a class="anchor" id="a32fdf2306d469b45e2a3bfd020403d76"></a><!-- doxytag: member="lc7981.h::lcd_strobe" ref="a32fdf2306d469b45e2a3bfd020403d76" args="()" -->
+<a class="anchor" id="ae6e048011d567dd2859901544ebf7051"></a><!-- doxytag: member="lc7981.h::lcd_strobe" ref="ae6e048011d567dd2859901544ebf7051" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">static void lcd_strobe </td>
           <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [inline, static]</code></td>
@@ -963,7 +983,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 18 Dec 2009 for glcd by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 12 Apr 2010 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
