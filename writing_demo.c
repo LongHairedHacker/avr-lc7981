@@ -1,5 +1,5 @@
 /**
- * particel_demo.c
+ * writing_demo.c
  *
  *  Created on: 29.05.2009
  *      Author: sebastian

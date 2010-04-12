@@ -10,7 +10,7 @@
 
 #include "include/lc7981.h"
 #include "include/adc.h"
-#include "button.h"
+//#include "button.h"
 #include "12x16_horizontal_LSB_1.h"
 //#include "8x8_horizontal_LSB_1.h"
 #include "include/touch.h"
