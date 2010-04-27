@@ -301,8 +301,8 @@ uint16_t pos;
  * @param x_off horizontal position of the character
  * @param y_off vertical position of the character
  * @param c the character or it's ascii code
- * @param fw width of the font
- * @param fh height of the font
+ * @param fw width of the font (we start counting from 0, so a 10px width font will have fw = 9)
+ * @param fh height of the font (we start counting from 0, so a 10px height font will have fh = 9)
  * @param font pointer to the flash area where the font is stored
  *
  */
@@ -322,8 +322,8 @@ uint8_t fsize;
  * @param x_off horizontal position of the character
  * @param y_off vertical position of the character
  * @param text the text that is plotted
- * @param fw width of the font
- * @param fh height of the font
+ * @param fw width of the font (we start counting from 0, so a 10px width font will have fw = 9)
+ * @param fh height of the font (we start counting from 0, so a 10px height font will have fh = 9)
  * @param font pointer to the flash area where the font is stored
  *
  *
@@ -346,8 +346,8 @@ while(*text) {
 * @param x_off horizontal position of the character
 * @param y_off vertical position of the character
 * @param text flash area where the text is stored
-* @param fw width of the font
-* @param fh height of the font
+* @param fw width of the font (we start counting from 0, so a 10px width font will have fw = 9)
+* @param fh height of the font (we start counting from 0, so a 10px height font will have fh = 9)
 * @param font pointer to the flash area where the font is stored
 *
 *

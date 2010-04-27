@@ -256,7 +256,7 @@ Plots a single character in graphicmode. Each character of the font is stored li
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em c}]the character or it's ascii code \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored \end{DoxyParams}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em c}]the character or it's ascii code \item[{\em fw}]width of the font (we start counting from 0, so a 10px width font will have fw = 9) \item[{\em fh}]height of the font (we start counting from 0, so a 10px height font will have fh = 9) \item[{\em font}]pointer to the flash area where the font is stored \end{DoxyParams}
 \index{lc7981.h@{lc7981.h}!lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}}
 \index{lcd\_\-plot\_\-pgmtext@{lcd\_\-plot\_\-pgmtext}!lc7981.h@{lc7981.h}}
 \subsubsection[{lcd\_\-plot\_\-pgmtext}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-pgmtext (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  PGM\_\-P {\em text}, \/  uint8\_\-t {\em fw}, \/  uint8\_\-t {\em fh}, \/  PGM\_\-P {\em font})}\label{lc7981_8h_a0af06316c8d3d3a57b1ddcf949d85a8c}
@@ -264,7 +264,7 @@ Plots a single character in graphicmode. Each character of the font is stored li
 
 Plots a text using lcd\_\-plot\_\-char. 
 \begin{DoxyParams}{Parameters}
-\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]flash area where the text is stored \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]flash area where the text is stored \item[{\em fw}]width of the font (we start counting from 0, so a 10px width font will have fw = 9) \item[{\em fh}]height of the font (we start counting from 0, so a 10px height font will have fh = 9) \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a2615737020b222e49a4d9c8d08a54f43} 
 
@@ -285,7 +285,7 @@ set or unset a pixel at the specified location
 
 Plots a text using lcd\_\-plot\_\-char. 
 \begin{DoxyParams}{Parameters}
-\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]the text that is plotted \item[{\em fw}]width of the font \item[{\em fh}]height of the font \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
+\item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]the text that is plotted \item[{\em fw}]width of the font (we start counting from 0, so a 10px width font will have fw = 9) \item[{\em fh}]height of the font (we start counting from 0, so a 10px height font will have fh = 9) \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a2615737020b222e49a4d9c8d08a54f43} 
 \end{DoxySeeAlso}
