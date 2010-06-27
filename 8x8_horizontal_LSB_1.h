@@ -1,3 +1,5 @@
+#include <avr/pgmspace.h>
+
 //taken from : http://www.mikrocontroller.net/topic/54860
 
 const char font_8x8[] PROGMEM = {

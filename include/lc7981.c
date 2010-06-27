@@ -1,7 +1,7 @@
 /*
  * lc7981.c
  *
- * Version 0.6 beta
+ * Version 0.7 beta
  *
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -129,6 +129,7 @@ uint16_t i;
  */
 void lcd_write_text(char *txt) {
 uint8_t c,tmp,x,y;
+uint16_t pos;
 
 
 	if(lcd_mode == LCD_TEXT) {
@@ -144,8 +145,8 @@ uint8_t c,tmp,x,y;
 				else { //scroll up
 					for(y = 1; y < LCD_TEXT_LINES; y++ ) {
 						for(x = 0; x < LCD_TEXT_COLUMNS; x++) {
-							lcd_gotoxy(x,y);
-							tmp = lcd_read_byte();
+							pos = (y * LCD_TEXT_COLUMNS) + x;
+							tmp = lcd_read_byte(pos);
 							lcd_gotoxy(x,y-1);
 							lcd_write_command(0x0C,tmp);
 						}
@@ -225,67 +226,81 @@ uint8_t xr;
  * Unset pixels are treated as transparent \n
  * This function is by far the most tricky piece of code in this project,\n
  * don't worry if you don't understand it at first sight. \n
- * And if you know a better way to do this, tell me.\n
+ * Actually it just loops bitwise through the bitmap and uses some \n
+ * nice bit shifting magic to get it anywhere you want.
  *
- * @param x_off horizontal position of the bitmap
- * @param y_off vertical position of the bitmap
+ * @param x horizontal position of the bitmap
+ * @param y vertical position of the bitmap
  * @param bitmap pointer to the bitmap in pgmspace
- * @param w width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9)
- * @param h height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)
+ * @param w width of the bitmap
+ * @param h height of the bitmap
  *
  * This function is dedicated to Greta, one of the most important persons in my life so far.\n
  *
  */
-void lcd_plot_bitmap(uint8_t x_off, uint8_t y_off, PGM_P bitmap, uint8_t w, uint8_t h) {
-uint8_t x,y,cur,curs,sr,dr;
-uint16_t pos;
 
-	//check if the bitmap fits on the display
-	if((x_off <= LCD_GRAPHIC_WIDTH - 1) && (y_off <= LCD_GRAPHIC_HEIGHT - 1)
-		&& (x_off + w <= LCD_GRAPHIC_WIDTH - 1) && (y_off + h <= LCD_GRAPHIC_HEIGHT - 1)) {
-		curs = 0;
-		dr = 0;
-		//loop linewise through the bitmap
-		for(y = y_off; y < y_off + h; y++) {
-			cur = 0;
-			//loop pixelwise through each line
-			for(x = x_off - (x_off % 8); x_off + w > x; x++) {
-				dr = x % 8;
+void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h) {
+	//curent x position in bytes, current y position in bytes, the width of the bitmap in bytes
+	uint8_t cx,cy,wb;
+	//source and destination position in bytes in the memory
+	uint16_t dpos,spos;
+	// x offest used if the x coordinate is in the middle of a byte
+	uint8_t xoff;
+	//  various places to store a byte
+	uint8_t fbyte,nbyte,byte;
 
-				if(dr == 0) { //load the next byte from display memory
-					pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
-					lcd_write_command(0x0A,(uint8_t) pos );
-					lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
-					cur = lcd_read_byte();
-				}
+	// check whether the bitmap fits on the display
+	if((x <= LCD_GRAPHIC_WIDTH - 1) && (y <= LCD_GRAPHIC_HEIGHT - 1)
+		&& (x + w <= LCD_GRAPHIC_WIDTH - 1) && (y + h <= LCD_GRAPHIC_HEIGHT - 1)) {
 
-				if((x - x_off) >= 0) {
-					sr = (x - x_off) % 8;
-					if(sr == 0) { //load the next byte of the bitmap
-						curs = pgm_read_byte(bitmap++);
-					}
-					//grep the pixel from the bitmap and put into the display byte
-					cur = cur | ((( curs & (1 << sr)) >> sr) << dr);
-				}
-
-				if(dr == 7) { //write the current byte to display memory
-					pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
-					lcd_write_command(0x0A,(uint8_t) pos );
-					lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
-					lcd_write_command(0x0C,cur);
-				}
-			}
-			if(dr != 7) { //write the last byte to display memory if there's one left
-				pos = y * (LCD_GRAPHIC_WIDTH / 8)  + x / 8;
-				lcd_write_command(0x0A,(uint8_t) pos );
-				lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
-				lcd_write_command(0x0C,cur);
-			}
-
+		// Calculate the width in byte (1-8 pixel one byte, 9-16 pixel two bytes ..)
+		if (w % 8 != 0) {
+			wb = w / 8 + 1;
+		}
+		else {
+			wb = w / 8;
 		}
 
+		// Loop bytewise through the bitmap
+		for(cy = 0; cy < h; cy++) {
+			for(cx = 0; cx < wb; cx++) {
+				//source and destination positions
+				spos = cx + cy * wb;
+				dpos = (x  + y * LCD_GRAPHIC_WIDTH) / 8 + (cx  + cy * LCD_GRAPHIC_WIDTH / 8);
+
+				//Crop the Bitmap if it doesn't use all the bits in the last byte
+				if((w % 8 != 0) & (cx == wb -1)) {
+					byte = pgm_read_byte(bitmap+spos);
+					byte = (byte & ~(0xFF << (w % 8)));
+				}
+				else {
+					byte = pgm_read_byte(bitmap+spos);
+				}
+
+				//Coordinate is the first bit of a display memory byte
+				if(x % 8 == 0) {
+					byte = lcd_read_byte(dpos) | byte;
+					lcd_write_byte(dpos,byte);
+				}
+				else { // Coordinate is somewhere in the byte, let's do some shifting
+					xoff = x % 8;
+
+					fbyte = byte & ~(0xFF << (8 - xoff));
+					nbyte = byte & (0xFF << (8 - xoff));
+
+					byte = lcd_read_byte(dpos) | (fbyte << xoff);
+					lcd_write_byte(dpos, byte);
+
+					byte = lcd_read_byte(dpos+1) | (nbyte >> (8 - xoff));
+					lcd_write_byte(dpos+1, byte);
+
+				}
+			}
+		}
 	}
-}
+};
+
+
 
 
 /**
@@ -308,10 +323,17 @@ uint16_t pos;
  */
 void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font) {
 PGM_P letter;
-uint8_t fsize;
+uint8_t fsize,fwb;
 
-	fsize = fh * fw / 8;
-	letter = font + c * fsize -1;
+	if (fw % 8 != 0) {
+		fwb = fw / 8 + 1;
+	}
+	else {
+		fwb = fw / 8;
+	}
+
+	fsize = fh * fwb;
+	letter = font + c * fsize;
 
 	lcd_plot_bitmap(x_off,y_off,letter,fw,fh);
 

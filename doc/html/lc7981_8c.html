@@ -36,8 +36,8 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the display cursor to a specific location.  <a href="#adbf47a5efdf02367ded1ebf8f9edb5fe"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#a735111507ed83172f58d5af2953e31c6">lcd_plot_pixel</a> (uint8_t x, uint8_t y, uint8_t set)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">set or unset a pixel at the specified location  <a href="#a735111507ed83172f58d5af2953e31c6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#a21d8458d8f15ac3799a2f6303b85c136">lcd_plot_bitmap</a> (uint8_t x_off, uint8_t y_off, PGM_P bitmap, uint8_t w, uint8_t h)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This function will plot a bitmap with the upper left corner to the given coordinates.  <a href="#a21d8458d8f15ac3799a2f6303b85c136"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#aa89be137ee35d3fd7e88782aafb0efdf">lcd_plot_bitmap</a> (uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This function will plot a bitmap with the upper left corner to the given coordinates.  <a href="#aa89be137ee35d3fd7e88782aafb0efdf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#a2615737020b222e49a4d9c8d08a54f43">lcd_plot_char</a> (uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Plots a single character in graphicmode.  <a href="#a2615737020b222e49a4d9c8d08a54f43"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lc7981_8c.html#a71a77094675e2850e8a4b442fb6a366e">lcd_plot_text</a> (uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font)</td></tr>
@@ -135,7 +135,7 @@
 
 </div>
 </div>
-<a class="anchor" id="a21d8458d8f15ac3799a2f6303b85c136"></a><!-- doxytag: member="lc7981.c::lcd_plot_bitmap" ref="a21d8458d8f15ac3799a2f6303b85c136" args="(uint8_t x_off, uint8_t y_off, PGM_P bitmap, uint8_t w, uint8_t h)" -->
+<a class="anchor" id="aa89be137ee35d3fd7e88782aafb0efdf"></a><!-- doxytag: member="lc7981.c::lcd_plot_bitmap" ref="aa89be137ee35d3fd7e88782aafb0efdf" args="(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -143,13 +143,13 @@
           <td class="memname">void lcd_plot_bitmap </td>
           <td>(</td>
           <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>x_off</em>, </td>
+          <td class="paramname"> <em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>y_off</em>, </td>
+          <td class="paramname"> <em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -184,15 +184,15 @@
  Unset pixels are treated as transparent <br/>
  This function is by far the most tricky piece of code in this project,<br/>
  don't worry if you don't understand it at first sight. <br/>
- And if you know a better way to do this, tell me.<br/>
-</p>
+ Actually it just loops bitwise through the bitmap and uses some <br/>
+ nice bit shifting magic to get it anywhere you want.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x_off</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y_off</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>horizontal position of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>vertical position of the bitmap </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>bitmap</em>&nbsp;</td><td>pointer to the bitmap in pgmspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9) </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>w</em>&nbsp;</td><td>width of the bitmap </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>h</em>&nbsp;</td><td>height of the bitmap</td></tr>
   </table>
   </dd>
 </dl>
@@ -333,9 +333,9 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#a2615737020b222e49a4d9c8d08a54f43" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#a3d66dccc8324afe2e7b4cdd0970916f6" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd>
 <dd>
-<a class="el" href="lc7981_8h.html#a71a77094675e2850e8a4b442fb6a366e" title="Plots a text using lcd_plot_char.">lcd_plot_text</a> </dd></dl>
+<a class="el" href="lc7981_8h.html#a0a47b2eaae0a5e028c0065e945147aed" title="Plots a text using lcd_plot_char.">lcd_plot_text</a> </dd></dl>
 
 </div>
 </div>
@@ -443,7 +443,7 @@
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#a2615737020b222e49a4d9c8d08a54f43" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="lc7981_8h.html#a3d66dccc8324afe2e7b4cdd0970916f6" title="Plots a single character in graphicmode.">lcd_plot_char</a> </dd></dl>
 
 </div>
 </div>
@@ -506,7 +506,7 @@
 </div>
 </div>
 </div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Apr 2010 for glcd by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2010 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

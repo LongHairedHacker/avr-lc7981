@@ -14,7 +14,7 @@ void {\bf lcd\_\-gotoxy} (uint8\_\-t x, uint8\_\-t y)
 \begin{DoxyCompactList}\small\item\em Set the display cursor to a specific location. \item\end{DoxyCompactList}\item 
 void {\bf lcd\_\-plot\_\-pixel} (uint8\_\-t x, uint8\_\-t y, uint8\_\-t set)
 \begin{DoxyCompactList}\small\item\em set or unset a pixel at the specified location \item\end{DoxyCompactList}\item 
-void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, PGM\_\-P bitmap, uint8\_\-t w, uint8\_\-t h)
+void {\bf lcd\_\-plot\_\-bitmap} (uint8\_\-t x, uint8\_\-t y, PGM\_\-P bitmap, uint8\_\-t w, uint8\_\-t h)
 \begin{DoxyCompactList}\small\item\em This function will plot a bitmap with the upper left corner to the given coordinates. \item\end{DoxyCompactList}\item 
 void {\bf lcd\_\-plot\_\-char} (uint8\_\-t x\_\-off, uint8\_\-t y\_\-off, uint8\_\-t c, uint8\_\-t fw, uint8\_\-t fh, PGM\_\-P font)
 \begin{DoxyCompactList}\small\item\em Plots a single character in graphicmode. \item\end{DoxyCompactList}\item 
@@ -58,7 +58,7 @@ lcd\_\-init set the to default values.
 \item[{\em mode}]LCD\_\-TEXT for text mode and LCD\_\-GRAPHIC for graphic mode \end{DoxyParams}
 \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}}
 \index{lcd\_\-plot\_\-bitmap@{lcd\_\-plot\_\-bitmap}!lc7981.c@{lc7981.c}}
-\subsubsection[{lcd\_\-plot\_\-bitmap}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x\_\-off}, \/  uint8\_\-t {\em y\_\-off}, \/  PGM\_\-P {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8c_a21d8458d8f15ac3799a2f6303b85c136}
+\subsubsection[{lcd\_\-plot\_\-bitmap}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\_\-plot\_\-bitmap (uint8\_\-t {\em x}, \/  uint8\_\-t {\em y}, \/  PGM\_\-P {\em bitmap}, \/  uint8\_\-t {\em w}, \/  uint8\_\-t {\em h})}\label{lc7981_8c_aa89be137ee35d3fd7e88782aafb0efdf}
 
 
 This function will plot a bitmap with the upper left corner to the given coordinates. \par
@@ -66,12 +66,12 @@ This function will plot a bitmap with the upper left corner to the given coordin
  Unset pixels are treated as transparent \par
  This function is by far the most tricky piece of code in this project,\par
  don't worry if you don't understand it at first sight. \par
- And if you know a better way to do this, tell me.\par
-
+ Actually it just loops bitwise through the bitmap and uses some \par
+ nice bit shifting magic to get it anywhere you want.
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em x\_\-off}]horizontal position of the bitmap \item[{\em y\_\-off}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap (we start counting from 0, so a 10px width bitmap will have w = 9) \item[{\em h}]height of the bitmap (we start counting from 0, so a 10px height bitmap will have h = 9)\end{DoxyParams}
+\item[{\em x}]horizontal position of the bitmap \item[{\em y}]vertical position of the bitmap \item[{\em bitmap}]pointer to the bitmap in pgmspace \item[{\em w}]width of the bitmap \item[{\em h}]height of the bitmap\end{DoxyParams}
 This function is dedicated to Greta, one of the most important persons in my life so far.\par
  \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}}
 \index{lcd\_\-plot\_\-char@{lcd\_\-plot\_\-char}!lc7981.c@{lc7981.c}}
@@ -98,9 +98,9 @@ Plots a text using lcd\_\-plot\_\-char.
 \begin{DoxyParams}{Parameters}
 \item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]flash area where the text is stored \item[{\em fw}]width of the font (we start counting from 0, so a 10px width font will have fw = 9) \item[{\em fh}]height of the font (we start counting from 0, so a 10px height font will have fh = 9) \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a2615737020b222e49a4d9c8d08a54f43} 
+\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a3d66dccc8324afe2e7b4cdd0970916f6} 
 
-\doxyref{lcd\_\-plot\_\-text}{p.}{lc7981_8h_a71a77094675e2850e8a4b442fb6a366e} 
+\doxyref{lcd\_\-plot\_\-text}{p.}{lc7981_8h_a0a47b2eaae0a5e028c0065e945147aed} 
 \end{DoxySeeAlso}
 \index{lc7981.c@{lc7981.c}!lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}}
 \index{lcd\_\-plot\_\-pixel@{lcd\_\-plot\_\-pixel}!lc7981.c@{lc7981.c}}
@@ -119,7 +119,7 @@ Plots a text using lcd\_\-plot\_\-char.
 \begin{DoxyParams}{Parameters}
 \item[{\em x\_\-off}]horizontal position of the character \item[{\em y\_\-off}]vertical position of the character \item[{\em text}]the text that is plotted \item[{\em fw}]width of the font (we start counting from 0, so a 10px width font will have fw = 9) \item[{\em fh}]height of the font (we start counting from 0, so a 10px height font will have fh = 9) \item[{\em font}]pointer to the flash area where the font is stored\end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
-\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a2615737020b222e49a4d9c8d08a54f43} 
+\doxyref{lcd\_\-plot\_\-char}{p.}{lc7981_8h_a3d66dccc8324afe2e7b4cdd0970916f6} 
 \end{DoxySeeAlso}
 \index{lc7981.c@{lc7981.c}!lcd\_\-write\_\-text@{lcd\_\-write\_\-text}}
 \index{lcd\_\-write\_\-text@{lcd\_\-write\_\-text}!lc7981.c@{lc7981.c}}

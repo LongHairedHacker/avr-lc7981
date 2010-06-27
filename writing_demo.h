@@ -15,4 +15,4 @@
 
 void writing_demo(void);
 
-#endif /* PARTICEL_DEMO_H_ */
+#endif

@@ -4,7 +4,7 @@
  *  Created on: 01.05.2009
  *      Author: sebastian
  *
- * Version 0.6 beta
+ * Version 0.7 beta
  *
  * The contents of this file are subject to the Mozilla Public License
  * Version 1.1 (the "License"); you may not use this file except in
@@ -79,15 +79,16 @@ void lcd_gotoxy(uint8_t x, uint8_t y);
 
 void lcd_plot_pixel(uint8_t x, uint8_t y, uint8_t set);
 void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
+//void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
 
-void lcd_plot_char(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
-void lcd_plot_text(uint8_t x_off, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font);
-void lcd_plot_pgmtext(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
+void lcd_plot_char(uint8_t x, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
+void lcd_plot_text(uint8_t x, uint8_t y_off, const char *text, uint8_t fw, uint8_t fh, PGM_P font);
+void lcd_plot_pgmtext(uint8_t x, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
 
 
 static inline void lcd_strobe(void);
 static inline void lcd_write_command(uint8_t cmd, uint8_t data);
-static inline uint8_t lcd_read_byte(void);
+static inline uint8_t lcd_read_byte(uint16_t pos);
 
 
 // Static inline functions, that can be used in the library and in the main programm
@@ -128,14 +129,16 @@ static inline void lcd_write_command(uint8_t cmd, uint8_t data) {
 
 /**
  * Reads a byte from the display memory.
- * lcd_gotoxy can be used to set the location.
- * Important : lcd_gotoxy doesn't work in graphics mode yet.
  *
+ * @param pos 16bit address for display memory
  * @return the byte which has been read
  * @see lcd_gotoxy
  */
-static inline uint8_t lcd_read_byte(void) {
+static inline uint8_t lcd_read_byte(uint16_t pos) {
 uint8_t i,data;
+
+	lcd_write_command(0x0A,(uint8_t) pos );
+	lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
 
 	for(i = 0; i < 2; i++) {
 		_delay_us(30);
@@ -154,6 +157,15 @@ uint8_t i,data;
 		LCD_DATA_DDR = 0xFF;
 	}
 	return data;
+}
+
+static inline void lcd_write_byte(uint16_t pos,uint8_t byte) {
+
+	lcd_write_command(0x0A,(uint8_t) pos );
+	lcd_write_command(0x0B,(uint8_t) (pos  >> 8));
+	lcd_write_command(0x0C,byte);
+
+
 }
 
 

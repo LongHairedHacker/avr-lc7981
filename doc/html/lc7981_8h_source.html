@@ -27,7 +27,7 @@
 <a name="l00004"></a>00004 <span class="comment"> *  Created on: 01.05.2009</span>
 <a name="l00005"></a>00005 <span class="comment"> *      Author: sebastian</span>
 <a name="l00006"></a>00006 <span class="comment"> *</span>
-<a name="l00007"></a>00007 <span class="comment"> * Version 0.6 beta</span>
+<a name="l00007"></a>00007 <span class="comment"> * Version 0.7 beta</span>
 <a name="l00008"></a>00008 <span class="comment"> *</span>
 <a name="l00009"></a>00009 <span class="comment"> * The contents of this file are subject to the Mozilla Public License</span>
 <a name="l00010"></a>00010 <span class="comment"> * Version 1.1 (the &quot;License&quot;); you may not use this file except in</span>
@@ -101,73 +101,86 @@
 <a name="l00078"></a>00078 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#adbf47a5efdf02367ded1ebf8f9edb5fe" title="Set the display cursor to a specific location.">lcd_gotoxy</a>(uint8_t x, uint8_t y);
 <a name="l00079"></a>00079 
 <a name="l00080"></a>00080 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a735111507ed83172f58d5af2953e31c6" title="set or unset a pixel at the specified location">lcd_plot_pixel</a>(uint8_t x, uint8_t y, uint8_t <span class="keyword">set</span>);
-<a name="l00081"></a>00081 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a21d8458d8f15ac3799a2f6303b85c136" title="This function will plot a bitmap with the upper left corner to the given coordinates...">lcd_plot_bitmap</a>(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a2615737020b222e49a4d9c8d08a54f43" title="Plots a single character in graphicmode.">lcd_plot_char</a>(uint8_t x_off, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
-<a name="l00084"></a>00084 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a71a77094675e2850e8a4b442fb6a366e" title="Plots a text using lcd_plot_char.">lcd_plot_text</a>(uint8_t x_off, uint8_t y_off, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, uint8_t fw, uint8_t fh, PGM_P font);
-<a name="l00085"></a>00085 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a0af06316c8d3d3a57b1ddcf949d85a8c" title="Plots a text using lcd_plot_char.">lcd_plot_pgmtext</a>(uint8_t x_off, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
-<a name="l00086"></a>00086 
+<a name="l00081"></a>00081 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#aa89be137ee35d3fd7e88782aafb0efdf" title="This function will plot a bitmap with the upper left corner to the given coordinates...">lcd_plot_bitmap</a>(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);
+<a name="l00082"></a>00082 <span class="comment">//void lcd_plot_bitmap(uint8_t x, uint8_t y, PGM_P bitmap, uint8_t w, uint8_t h);</span>
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a2615737020b222e49a4d9c8d08a54f43" title="Plots a single character in graphicmode.">lcd_plot_char</a>(uint8_t x, uint8_t y_off, uint8_t c, uint8_t fw, uint8_t fh, PGM_P font);
+<a name="l00085"></a>00085 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a71a77094675e2850e8a4b442fb6a366e" title="Plots a text using lcd_plot_char.">lcd_plot_text</a>(uint8_t x, uint8_t y_off, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, uint8_t fw, uint8_t fh, PGM_P font);
+<a name="l00086"></a>00086 <span class="keywordtype">void</span> <a class="code" href="lc7981_8c.html#a0af06316c8d3d3a57b1ddcf949d85a8c" title="Plots a text using lcd_plot_char.">lcd_plot_pgmtext</a>(uint8_t x, uint8_t y_off, PGM_P text, uint8_t fw, uint8_t fh, PGM_P font);
 <a name="l00087"></a>00087 
-<a name="l00088"></a>00088 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>(<span class="keywordtype">void</span>);
-<a name="l00089"></a>00089 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data);
-<a name="l00090"></a>00090 <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8h.html#a4e0e642817c38e2c73eb6355a45847e0" title="Reads a byte from the display memory.">lcd_read_byte</a>(<span class="keywordtype">void</span>);
-<a name="l00091"></a>00091 
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>(<span class="keywordtype">void</span>);
+<a name="l00090"></a>00090 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data);
+<a name="l00091"></a>00091 <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8h.html#a2753ae63b5b2e212d5dc101749b76249" title="Reads a byte from the display memory.">lcd_read_byte</a>(uint16_t pos);
 <a name="l00092"></a>00092 
-<a name="l00093"></a>00093 <span class="comment">// Static inline functions, that can be used in the library and in the main programm</span>
-<a name="l00094"></a>00094 
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="comment">// Static inline functions, that can be used in the library and in the main programm</span>
 <a name="l00095"></a>00095 
-<a name="l00100"></a><a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051">00100</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>(<span class="keywordtype">void</span>) {
-<a name="l00101"></a>00101         <a class="code" href="lc7981_8h.html#ae14be306d3620577abc8613d40401b04" title="Set the strobe pin high.">lcd_en_high</a>();
-<a name="l00102"></a>00102         _delay_us(1);
-<a name="l00103"></a>00103         <a class="code" href="lc7981_8h.html#ad8dcdb36a9410fd96b2c936b7c9355dd" title="Set the strobe pin low.">lcd_en_low</a>();
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 }
-<a name="l00106"></a>00106 
+<a name="l00096"></a>00096 
+<a name="l00101"></a><a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051">00101</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>(<span class="keywordtype">void</span>) {
+<a name="l00102"></a>00102         <a class="code" href="lc7981_8h.html#ae14be306d3620577abc8613d40401b04" title="Set the strobe pin high.">lcd_en_high</a>();
+<a name="l00103"></a>00103         _delay_us(1);
+<a name="l00104"></a>00104         <a class="code" href="lc7981_8h.html#ad8dcdb36a9410fd96b2c936b7c9355dd" title="Set the strobe pin low.">lcd_en_low</a>();
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 }
 <a name="l00107"></a>00107 
-<a name="l00114"></a><a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1">00114</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data) {
-<a name="l00115"></a>00115         _delay_us(30);
-<a name="l00116"></a>00116         <a class="code" href="lc7981_8h.html#a7f5ebe0ca71b1298a7d3423850cc82b1" title="Set the Register-Select pin low.">lcd_rw_low</a>();
-<a name="l00117"></a>00117         <a class="code" href="lc7981_8h.html#a795b48274d3f80bc744a707b67fd93e9" title="Set the Register-Select pin high.">lcd_rs_high</a>();
-<a name="l00118"></a>00118         <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = cmd;
-<a name="l00119"></a>00119         _delay_us(1);
-<a name="l00120"></a>00120         <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122         <a class="code" href="lc7981_8h.html#a6edb13d59460246fb4cc32ada1c9f4a8" title="Set the Register-Select pin low.">lcd_rs_low</a>();
-<a name="l00123"></a>00123         <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = data;
-<a name="l00124"></a>00124         _delay_us(1);
-<a name="l00125"></a>00125         <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127 }
-<a name="l00128"></a>00128 
-<a name="l00137"></a><a class="code" href="lc7981_8h.html#a4e0e642817c38e2c73eb6355a45847e0">00137</a> <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8h.html#a4e0e642817c38e2c73eb6355a45847e0" title="Reads a byte from the display memory.">lcd_read_byte</a>(<span class="keywordtype">void</span>) {
+<a name="l00108"></a>00108 
+<a name="l00115"></a><a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1">00115</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(uint8_t cmd, uint8_t data) {
+<a name="l00116"></a>00116         _delay_us(30);
+<a name="l00117"></a>00117         <a class="code" href="lc7981_8h.html#a7f5ebe0ca71b1298a7d3423850cc82b1" title="Set the Register-Select pin low.">lcd_rw_low</a>();
+<a name="l00118"></a>00118         <a class="code" href="lc7981_8h.html#a795b48274d3f80bc744a707b67fd93e9" title="Set the Register-Select pin high.">lcd_rs_high</a>();
+<a name="l00119"></a>00119         <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = cmd;
+<a name="l00120"></a>00120         _delay_us(1);
+<a name="l00121"></a>00121         <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123         <a class="code" href="lc7981_8h.html#a6edb13d59460246fb4cc32ada1c9f4a8" title="Set the Register-Select pin low.">lcd_rs_low</a>();
+<a name="l00124"></a>00124         <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = data;
+<a name="l00125"></a>00125         _delay_us(1);
+<a name="l00126"></a>00126         <a class="code" href="lc7981_8h.html#ae6e048011d567dd2859901544ebf7051" title="Generates the strobe signal for writing data.">lcd_strobe</a>();
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128 }
+<a name="l00129"></a>00129 
+<a name="l00137"></a><a class="code" href="lc7981_8h.html#a2753ae63b5b2e212d5dc101749b76249">00137</a> <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <a class="code" href="lc7981_8h.html#a2753ae63b5b2e212d5dc101749b76249" title="Reads a byte from the display memory.">lcd_read_byte</a>(uint16_t pos) {
 <a name="l00138"></a>00138 uint8_t i,data;
 <a name="l00139"></a>00139 
-<a name="l00140"></a>00140         <span class="keywordflow">for</span>(i = 0; i &lt; 2; i++) {
-<a name="l00141"></a>00141                 _delay_us(30);
-<a name="l00142"></a>00142                 <a class="code" href="lc7981_8h.html#a7f5ebe0ca71b1298a7d3423850cc82b1" title="Set the Register-Select pin low.">lcd_rw_low</a>();
-<a name="l00143"></a>00143                 <a class="code" href="lc7981_8h.html#a795b48274d3f80bc744a707b67fd93e9" title="Set the Register-Select pin high.">lcd_rs_high</a>();
-<a name="l00144"></a>00144                 <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = 0x0D;
-<a name="l00145"></a>00145                 _delay_us(1);
-<a name="l00146"></a>00146                 <a class="code" href="lc7981_8h.html#ae14be306d3620577abc8613d40401b04" title="Set the strobe pin high.">lcd_en_high</a>();
-<a name="l00147"></a>00147 
-<a name="l00148"></a>00148                 <a class="code" href="lc7981_8h.html#a0c114e723aa4c162c415fb6d4d963dd7" title="Data-Direction-Register for data.">LCD_DATA_DDR</a> = 0x00;
-<a name="l00149"></a>00149                 <a class="code" href="lc7981_8h.html#a6edb13d59460246fb4cc32ada1c9f4a8" title="Set the Register-Select pin low.">lcd_rs_low</a>();
-<a name="l00150"></a>00150                 <a class="code" href="lc7981_8h.html#ad0ce3cd9b481370ad4de36eff08440c8" title="Set the Read-Write-Select pin high.">lcd_rw_high</a>();
-<a name="l00151"></a>00151                 _delay_us(1);
-<a name="l00152"></a>00152                 data = (uint8_t) <a class="code" href="lc7981_8h.html#abd18e47e71697a28fd0ca765cefc7411" title="Port used for reading the data.">LCD_DATA_PIN</a>;
-<a name="l00153"></a>00153                 <a class="code" href="lc7981_8h.html#ad8dcdb36a9410fd96b2c936b7c9355dd" title="Set the strobe pin low.">lcd_en_low</a>();
-<a name="l00154"></a>00154                 <a class="code" href="lc7981_8h.html#a0c114e723aa4c162c415fb6d4d963dd7" title="Data-Direction-Register for data.">LCD_DATA_DDR</a> = 0xFF;
-<a name="l00155"></a>00155         }
-<a name="l00156"></a>00156         <span class="keywordflow">return</span> data;
-<a name="l00157"></a>00157 }
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159 
-<a name="l00160"></a>00160 
+<a name="l00140"></a>00140         <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(0x0A,(uint8_t) pos );
+<a name="l00141"></a>00141         <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(0x0B,(uint8_t) (pos  &gt;&gt; 8));
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143         <span class="keywordflow">for</span>(i = 0; i &lt; 2; i++) {
+<a name="l00144"></a>00144                 _delay_us(30);
+<a name="l00145"></a>00145                 <a class="code" href="lc7981_8h.html#a7f5ebe0ca71b1298a7d3423850cc82b1" title="Set the Register-Select pin low.">lcd_rw_low</a>();
+<a name="l00146"></a>00146                 <a class="code" href="lc7981_8h.html#a795b48274d3f80bc744a707b67fd93e9" title="Set the Register-Select pin high.">lcd_rs_high</a>();
+<a name="l00147"></a>00147                 <a class="code" href="lc7981_8h.html#a25e9d818788f36ed74d7c4579f87f2a6" title="Port used for data.">LCD_DATA</a> = 0x0D;
+<a name="l00148"></a>00148                 _delay_us(1);
+<a name="l00149"></a>00149                 <a class="code" href="lc7981_8h.html#ae14be306d3620577abc8613d40401b04" title="Set the strobe pin high.">lcd_en_high</a>();
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151                 <a class="code" href="lc7981_8h.html#a0c114e723aa4c162c415fb6d4d963dd7" title="Data-Direction-Register for data.">LCD_DATA_DDR</a> = 0x00;
+<a name="l00152"></a>00152                 <a class="code" href="lc7981_8h.html#a6edb13d59460246fb4cc32ada1c9f4a8" title="Set the Register-Select pin low.">lcd_rs_low</a>();
+<a name="l00153"></a>00153                 <a class="code" href="lc7981_8h.html#ad0ce3cd9b481370ad4de36eff08440c8" title="Set the Read-Write-Select pin high.">lcd_rw_high</a>();
+<a name="l00154"></a>00154                 _delay_us(1);
+<a name="l00155"></a>00155                 data = (uint8_t) <a class="code" href="lc7981_8h.html#abd18e47e71697a28fd0ca765cefc7411" title="Port used for reading the data.">LCD_DATA_PIN</a>;
+<a name="l00156"></a>00156                 <a class="code" href="lc7981_8h.html#ad8dcdb36a9410fd96b2c936b7c9355dd" title="Set the strobe pin low.">lcd_en_low</a>();
+<a name="l00157"></a>00157                 <a class="code" href="lc7981_8h.html#a0c114e723aa4c162c415fb6d4d963dd7" title="Data-Direction-Register for data.">LCD_DATA_DDR</a> = 0xFF;
+<a name="l00158"></a>00158         }
+<a name="l00159"></a>00159         <span class="keywordflow">return</span> data;
+<a name="l00160"></a>00160 }
 <a name="l00161"></a>00161 
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 <span class="preprocessor">#endif </span><span class="comment">/* LC7981_H_ */</span>
+<a name="l00162"></a><a class="code" href="lc7981_8h.html#a9f832e526c77af56c35ff22032d934e7">00162</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="lc7981_8h.html#a9f832e526c77af56c35ff22032d934e7">lcd_write_byte</a>(uint16_t pos,uint8_t byte) {
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164         <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(0x0A,(uint8_t) pos );
+<a name="l00165"></a>00165         <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(0x0B,(uint8_t) (pos  &gt;&gt; 8));
+<a name="l00166"></a>00166         <a class="code" href="lc7981_8h.html#a31db85f1f48f4802c24218bc165ea4e1" title="Writes a command and a data byte to the lcd.">lcd_write_command</a>(0x0C,byte);
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169 }
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 <span class="preprocessor">#endif </span><span class="comment">/* LC7981_H_ */</span>
 </pre></div></div>
-<hr size="1"/><address style="text-align: right;"><small>Generated on 16 Apr 2010 for glcd by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 27 Jun 2010 for glcd by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
